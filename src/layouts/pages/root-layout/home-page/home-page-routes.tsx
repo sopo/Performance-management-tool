@@ -6,7 +6,7 @@ import { Loader } from "@/components/ui/loader";
 
 export const HOME_PAGE_ROUTES = [
     {
-        path: ROOT_PATHS.HOME,
+        path: ROOT_PATHS.DASHBOARD,
         element: (
           <Suspense fallback={Loader}>
             <HomePage />

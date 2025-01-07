@@ -4,10 +4,11 @@ import { Navigate, createBrowserRouter } from "react-router";
 import GuestGuard from "./guards/guest-guard";
 import { GLOBAL_PATHS } from "./enums";
 import { AUTH_ROUTES } from "@/layouts/pages/autorization-layout/auth-routes";
+import { ROOT_PATHS } from "@/layouts/pages/root-layout/root.enums";
 
 export const routes = [
   { path: "/",
-    element: <Navigate to={GLOBAL_PATHS.EN} />,},
+    element: <Navigate to={`${GLOBAL_PATHS.EN}/${ROOT_PATHS.DASHBOARD}`} />,},
   {
     path: "/:lang",
     element: (

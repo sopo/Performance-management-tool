@@ -5,7 +5,8 @@ export enum ROOT_PATHS {
     REPORTS = "reports",
     USER = "user",
     PROFILE = "profile",
-    LIST="list"
+    LIST="list",
+    DASHBOARD="dashboard"
     
     
   }

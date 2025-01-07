@@ -18,7 +18,7 @@ const HeaderActions: React.FC = () => {
   const { t } = useTranslation();
   const {lang} = useParams();
   const navigate = useNavigate()
-  const { mutate: logOut, isLoading } = useLogOut(() => {
+  const { mutate: logOut } = useLogOut(() => {
     navigate(`/${lang}/${AUTH_PATHS.SIGN_IN}`);
   });
   return (
