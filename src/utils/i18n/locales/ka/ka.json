@@ -1,0 +1,59 @@
+{
+    "global": {
+      "dashboard": "მთავარი გვერდი",
+      "reports": "რეპორტები",
+      "myEvaluators": "ჩემი შემფასებლები",
+      "chooseEvaluators": "ჩემი შემფასებლები",
+      "evaluateEmployees": "კოლეგების შეფასება",
+      "profile": "პროფილი",
+      "logOut": "გასვლა",
+      "evaluation": "შეფასება",
+      "copyright": "ყველა უფლება დაცულია"
+    },
+    "message": {
+      "noPeers": "ჯერ არ აგირჩევია კოლეგები",
+      "deadline": "ბოლო ვადა: 25 დეკ 2025"
+    },
+    "help": {
+      "help": "დახმარება",
+      "faq": "კითხვები და პასუხები",
+      "guideline": "ინსტრუქციის ჩამოტვირთვა"
+    },
+    "pages": {
+      "signIn": {
+        "title": "ავტორიზაცია",
+        "email": "ელ. ფოსტა",
+        "password": "პაროლი",
+        "rememberMe": "დამიმახსოვრე",
+        "required": "ეს ველი სავალდებულოა",
+        "cta": "ავროტიზაცია",
+        "forgotPassword": "დაგავიწყდა პაროლი?",
+        "smallPassword": "პაროლი უნდა შეიცავდეს მინიმუმ 6 სიმბოლოს",
+        "envalidEmail": "მიუთითეთ სწორი ელ. ფოსტა",
+        "invalidCredentials": "ელ. ფოსტა ან პაროლი არასწორია"
+      },
+      "myEvaluators": {
+        "title": "ჩემი შემფასებლები"
+      },
+      "home": {
+        "title": "დეშბორდი"
+      },
+      "evaluateEmployees": {
+        "title": "კოლეგების შეფასება"
+      },
+      "profile": {
+        "title": "პროფილი"
+      },
+      "reports": {
+        "title": "რეპორტები"
+      },
+      "survey": {
+        "evaluate": "შეაფასე",
+        "total": "სულ კითხვა:",
+        "question": "კითხვა",
+        "submit": "გაგზავნა",
+        "error": "ყველა კითხვის შევსება სავალდებულოა"
+      }
+    }
+  }
+  

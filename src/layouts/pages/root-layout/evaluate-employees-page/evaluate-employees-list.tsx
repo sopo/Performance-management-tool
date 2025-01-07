@@ -1,12 +1,13 @@
 import Screen from "@/components/containers/screen";
 import Text from "@/components/text/text";
 import { useTranslation } from "react-i18next";
-import { Link, Outlet } from "react-router";
+import { Link, Outlet, useParams } from "react-router";
 import { ROOT_PATHS } from "../root.enums";
 import useGetProfiles from "@/hooks/use-get-profiles";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 const EvaluateEmployeesList: React.FC = () => {
   const { t } = useTranslation();
+  const {lang} = useParams()
   const { data, isLoading, isError, error } = useGetProfiles();
   if (isLoading) {
     return <div>Loading...</div>;
@@ -35,7 +36,7 @@ const EvaluateEmployeesList: React.FC = () => {
                   </AvatarFallback>
                 </Avatar>
                 <Link
-                  to={`/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${profile.id}`}
+                  to={`/${lang}/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${profile.id}`}
                   className="flex gap-2"
                 >
                   {profile.display_name}{" "}

@@ -13,7 +13,6 @@ const HomePage: React.FC = () => {
       <ChoosePeersCard />
       <ChoosePeersCard />
       <ChoosePeersCard />
-     
       </div>
       </div>
     </Screen>
