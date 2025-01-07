@@ -1,0 +1,58 @@
+{
+  "global": {
+    "dashboard": "Dashboard",
+    "reports": "Reports",
+    "myEvaluators": "My Evaluators",
+    "chooseEvaluators": "Choose peers",
+    "evaluateEmployees": "Evaluate Employees",
+    "profile": "Profile",
+    "logOut": "Log Out",
+    "evaluation": "Evaluation",
+    "copyright": "All Rights Reserved"
+  },
+  "message": {
+    "noPeers": "You haven't chosen peers yet",
+    "deadline": "Deadline: 25 Dec 2025"
+  },
+  "help": {
+    "help": "Help",
+    "faq": "Questions and Answers",
+    "guideline": "Download Guideline"
+  },
+  "pages": {
+    "signIn": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "rememberMe": "Remember Me",
+      "required": "This field is required",
+      "cta": "Sign In",
+      "forgotPassword": "Forgot Password?",
+      "smallPassword": "Password must be at least 6 characters long",
+      "envalidEmail": "Please enter valid email",
+      "invalidCredentials": "E-mail and password does not match"
+    },
+    "myEvaluators": {
+      "title": "My Evaluators"
+    },
+    "home": {
+      "title": "Performance Management System Dashboard"
+    },
+    "evaluateEmployees": {
+      "title": "Evaluate Employees"
+    },
+    "profile": {
+      "title": "Profile"
+    },
+    "reports": {
+      "title": "Reports"
+    },
+    "survey": {
+      "evaluate": "Evaluate",
+      "total": "Total Questions:",
+      "question": "Question",
+      "submit": "Submit",
+      "error": "Please answer all questions"
+    }
+  }
+}
