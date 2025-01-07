@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import useLogOut from "@/hooks/use-log-out";
 import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.enums";
+import LangToggle from "./lang-toggle";
 
 const HeaderActions: React.FC = () => {
   const { t } = useTranslation();
@@ -39,6 +40,7 @@ const HeaderActions: React.FC = () => {
           <DropdownMenuItem onClick={() => logOut()}>{t("global.logOut")}</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      <LangToggle />
     </div>
   );
 };

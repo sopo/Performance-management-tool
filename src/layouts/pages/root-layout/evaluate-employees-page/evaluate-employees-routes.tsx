@@ -5,6 +5,7 @@ import { Survey } from "../survey/survey.loader";
 import { EvaluateEmployeesList } from "./evaluate-employees-list.loader";
 import { Navigate } from "react-router";
 import { EvaluateEmployeesLayout } from "./evaluate-employees-layout.loader";
+import { GLOBAL_PATHS } from "@/navigation/enums";
 
 export const EVALUATE_EMPLOYEES_ROUTES = [
   {
@@ -31,7 +32,7 @@ export const EVALUATE_EMPLOYEES_ROUTES = [
       },
       {
         path: "",
-        element: <Navigate to={`/:lang/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${ROOT_PATHS.LIST}`} />,
+        element: <Navigate to={`/${GLOBAL_PATHS.EN}/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${ROOT_PATHS.LIST}`} />,
       },
     ],
   },
