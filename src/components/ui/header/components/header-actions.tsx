@@ -1,9 +1,8 @@
 import { ROOT_PATHS } from "@/layouts/pages/root-layout/root.enums";
 import { Bell } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,9 +15,10 @@ import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.en
 
 const HeaderActions: React.FC = () => {
   const { t } = useTranslation();
+  const {lang} = useParams();
   const navigate = useNavigate()
   const { mutate: logOut, isLoading } = useLogOut(() => {
-    navigate(AUTH_PATHS.SIGN_IN);
+    navigate(`/${lang}/${AUTH_PATHS.SIGN_IN}`);
   });
   return (
     <div className="flex gap-4 items-center">
@@ -32,7 +32,7 @@ const HeaderActions: React.FC = () => {
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <Link to={ROOT_PATHS.PROFILE}>
+          <Link to={`/${lang}/${ROOT_PATHS.PROFILE}`}>
             <DropdownMenuItem>{t("global.profile")}</DropdownMenuItem>
           </Link>
           <DropdownMenuSeparator />

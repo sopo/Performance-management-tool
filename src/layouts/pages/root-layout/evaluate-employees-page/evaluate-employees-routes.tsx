@@ -31,7 +31,7 @@ export const EVALUATE_EMPLOYEES_ROUTES = [
       },
       {
         path: "",
-        element: <Navigate to={`/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${ROOT_PATHS.LIST}`} />,
+        element: <Navigate to={`/:lang/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${ROOT_PATHS.LIST}`} />,
       },
     ],
   },
