@@ -47,6 +47,5 @@ export default tseslint.config({
     ...react.configs['jsx-runtime'].rules,
   },
 })
-```
-# performance-management
+
 # Performance-management-tool
