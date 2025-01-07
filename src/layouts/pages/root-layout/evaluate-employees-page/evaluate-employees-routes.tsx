@@ -3,7 +3,7 @@ import { ROOT_PATHS } from "../root.enums";
 import { Suspense } from "react";
 import { Survey } from "../survey/survey.loader";
 import { EvaluateEmployeesList } from "./evaluate-employees-list.loader";
-import { Navigate, useParams } from "react-router";
+import { Navigate} from "react-router";
 
 export const EVALUATE_EMPLOYEES_ROUTES = [
   {
@@ -11,7 +11,7 @@ export const EVALUATE_EMPLOYEES_ROUTES = [
     children: [
       {
         path: "",
-        element: <Navigate to="list" />, 
+        element: <Navigate to={ROOT_PATHS.LIST} />, 
       },
       {
         path: ROOT_PATHS.LIST,
