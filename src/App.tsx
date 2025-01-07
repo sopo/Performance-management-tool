@@ -25,7 +25,6 @@ function App() {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session);
-      console.log("usefect")
       setLoading(false)
     });
 

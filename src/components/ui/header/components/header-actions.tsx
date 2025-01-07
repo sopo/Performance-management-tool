@@ -13,10 +13,13 @@ import {
 import useLogOut from "@/hooks/use-log-out";
 import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.enums";
 import LangToggle from "./lang-toggle";
+import { UserAtom } from "@/store/auth";
+import { useAtomValue } from "jotai";
 
 const HeaderActions: React.FC = () => {
   const { t } = useTranslation();
   const {lang} = useParams();
+  const user = useAtomValue(UserAtom)
   const navigate = useNavigate()
   const { mutate: logOut } = useLogOut(() => {
     navigate(`/${lang}/${AUTH_PATHS.SIGN_IN}`);
@@ -29,7 +32,7 @@ const HeaderActions: React.FC = () => {
         <DropdownMenuTrigger>
           <Avatar>
             <AvatarImage src="" />
-            <AvatarFallback><p className="text-small text-foreground">CN</p></AvatarFallback>
+            <AvatarFallback><p className="text-small text-foreground">{user?.user.email?.[0]}</p></AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
