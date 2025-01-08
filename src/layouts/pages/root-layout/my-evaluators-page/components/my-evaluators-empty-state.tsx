@@ -26,7 +26,6 @@ const EmptyState:React.FC = () => {
         </CardContent>
         <CardFooter className="w-full">
           <Button onClick={handleNavigate}><ArrowRight />{t("global.chooseEvaluators")}</Button>
-
         </CardFooter>
       </Card>
     )

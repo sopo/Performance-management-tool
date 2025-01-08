@@ -126,30 +126,42 @@ export type Database = {
       selected_peers: {
         Row: {
           id: number
-          peer_display_name: string | null
+          peer_display_name_en: string | null
+          peer_display_name_ka: string | null
           peer_id: string | null
-          peer_position: string | null
-          user_display_name: string | null
+          peer_position_en: string | null
+          peer_position_ka: string | null
+          user_display_name_en: string | null
+          user_display_name_ka: string | null
           user_id: string | null
-          user_position: string | null
+          user_position_en: string | null
+          user_position_ka: string | null
         }
         Insert: {
           id?: number
-          peer_display_name?: string | null
+          peer_display_name_en?: string | null
+          peer_display_name_ka?: string | null
           peer_id?: string | null
-          peer_position?: string | null
-          user_display_name?: string | null
+          peer_position_en?: string | null
+          peer_position_ka?: string | null
+          user_display_name_en?: string | null
+          user_display_name_ka?: string | null
           user_id?: string | null
-          user_position?: string | null
+          user_position_en?: string | null
+          user_position_ka?: string | null
         }
         Update: {
           id?: number
-          peer_display_name?: string | null
+          peer_display_name_en?: string | null
+          peer_display_name_ka?: string | null
           peer_id?: string | null
-          peer_position?: string | null
-          user_display_name?: string | null
+          peer_position_en?: string | null
+          peer_position_ka?: string | null
+          user_display_name_en?: string | null
+          user_display_name_ka?: string | null
           user_id?: string | null
-          user_position?: string | null
+          user_position_en?: string | null
+          user_position_ka?: string | null
         }
         Relationships: []
       }
@@ -253,15 +265,3 @@ export type Enums<
 
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
-    | keyof PublicSchema["CompositeTypes"]
-    | { schema: keyof Database },
-  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
-    schema: keyof Database
-  }
-    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
-    : never = never,
-> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
-  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
-  : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
-    ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
-    : never

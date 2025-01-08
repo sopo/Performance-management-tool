@@ -11,6 +11,6 @@ export const getProfileWithId = async (id: string ) => {
   return await supabase
   .from("profiles")
   .select("*")
-  .eq("id", id)
+  .eq("user_id", id)
   .throwOnError()
 }

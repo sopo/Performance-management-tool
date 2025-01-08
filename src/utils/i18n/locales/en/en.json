@@ -54,6 +54,9 @@
       "question": "Question",
       "submit": "Submit",
       "error": "Please answer all questions"
+    },
+    "chooseEvaluators": {
+      "title": "Choose Evaluators"
     }
   }
 }
