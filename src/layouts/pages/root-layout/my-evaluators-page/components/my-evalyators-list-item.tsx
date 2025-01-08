@@ -8,7 +8,6 @@ export interface UserListItemProps {
   isChecked: boolean; 
   handleCheckboxChange: (checked: boolean) => void; 
 }
-
 const ChooseEmployeesListItem:React.FC<UserListItemProps>  = ({user, isChecked, handleCheckboxChange}) => {
 const {lang} = useParams()
     return(
