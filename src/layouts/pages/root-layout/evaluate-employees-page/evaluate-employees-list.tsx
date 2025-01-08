@@ -10,7 +10,7 @@ const EvaluateEmployeesList: React.FC = () => {
   const {lang} = useParams()
   const { data, isLoading, isError, error } = useGetProfiles();
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>{t("global.loading")}</div>;
   }
   if (isError) {
     return <div>Error: {error instanceof Error ? error.message : "Error"}</div>;
@@ -31,7 +31,7 @@ const EvaluateEmployeesList: React.FC = () => {
                 <Avatar>
                   <AvatarFallback>
                     <p className="text-small text-foreground">
-                      {profile.display_name?.[0]}
+                      {lang === "en" ? profile.display_name_en?.[0] : profile.display_name_ka?.[0]}
                     </p>
                   </AvatarFallback>
                 </Avatar>
@@ -39,8 +39,8 @@ const EvaluateEmployeesList: React.FC = () => {
                   to={`/${lang}/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${profile.id}`}
                   className="flex gap-2"
                 >
-                  {profile.display_name}{" "}
-                  <p className="text-muted-foreground">• {profile.position}</p>
+                  {lang==="en" ?  profile.display_name_en : profile.display_name_ka }{" "}
+                  <p className="text-muted-foreground">• {lang==="en" ?  profile.position_en : profile.position_ka}</p>
                 </Link>
               </div>
               <p>status</p>

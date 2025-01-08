@@ -14,6 +14,7 @@ import { usePostAnswers } from "@/hooks/use-post-answers";
 const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const SurveyPage:React.FC = () => {
     const {t} = useTranslation()
+    const {lang} = useParams()
     const { id } = useParams<{ id: string }>(); 
     const { data } = useGetQuestions();
     const total = data?.length || 0
@@ -26,7 +27,7 @@ const SurveyPage:React.FC = () => {
         id: id || ""
       });
       
-
+      console.log("profile", profile)
     const [formError, setFormError] = useState(false)
     const onLabelClick = ( questionId: number, label: number,) => {
         setSelectedAnswers({
@@ -65,14 +66,14 @@ const SurveyPage:React.FC = () => {
     }
     return (
     <Screen>
-        <p className="text-3xl">{`${t("pages.survey.evaluate")} ${profile?.display_name}`}</p>
+        <p className="text-3xl">{`${t("pages.survey.evaluate")} ${lang === "en" ? profile?.display_name_en : profile?.display_name_ka}`}</p>
         <p className="text-md text-muted-foreground border-b pb-6">{t("pages.survey.total")} {total}</p>
         <div className="mb-6">
         {data?.map((question, index) => (
             <div  key={question.id} className="flex flex-col gap-8 border-b py-16">
             <div>
-            <p className="text-sm text-muted-foreground">{question.category}: {t("pages.survey.question")} {index +1} / {total}</p>
-            <p className="text-2xl">{profile?.display_name} {question.title}</p>
+            <p className="text-sm text-muted-foreground">{lang === "en" ? question.category_en : question.category_ka}: {t("pages.survey.question")} {index +1} / {total}</p>
+            <p className="text-2xl">{lang === "en" ? profile?.display_name_en : profile?.display_name_ka} {lang==="en" ? question.title_en : question.title_ka}</p>
             </div>
             <SurveyVoteButtons labels={labels} selectedLabel={selectedAnswers[question.id]} onClick={(label) => onLabelClick(question.id, label)}/>
             </div>

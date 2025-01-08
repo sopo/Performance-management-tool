@@ -1,11 +1,9 @@
 import './App.css'
-
 import { RouterProvider } from 'react-router'
 import { router } from './navigation/routes'
 import { useAtomValue, useSetAtom } from 'jotai';
 import {  UserAtom } from './store/auth';
 import { useEffect, useState } from 'react';
-import useGetSession from './hooks/use-get-session';
 import { supabase } from './supabase';
 
 
@@ -27,7 +25,6 @@ function App() {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session);
-      console.log("usefect")
       setLoading(false)
     });
 

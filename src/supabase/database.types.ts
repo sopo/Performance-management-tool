@@ -38,25 +38,25 @@ export type Database = {
         Row: {
           created_at: string
           id: number
+          peer_id: string | null
           question_id: number | null
           score: number | null
-          peer_id: string | null
           user_id: string | null
         }
         Insert: {
           created_at?: string
           id?: number
+          peer_id?: string | null
           question_id?: number | null
           score?: number | null
-          peer_id?: string | null
           user_id?: string | null
         }
         Update: {
           created_at?: string
           id?: number
+          peer_id?: string | null
           question_id?: number | null
           score?: number | null
-          peer_id?: string | null
           user_id?: string | null
         }
         Relationships: [
@@ -72,42 +72,54 @@ export type Database = {
       profiles: {
         Row: {
           created_at: string
-          display_name: string | null
+          display_name_en: string | null
+          display_name_ka: string | null
           id: number
-          position: string | null
+          position_en: string | null
+          position_ka: string | null
           user_id: string | null
         }
         Insert: {
           created_at?: string
-          display_name?: string | null
+          display_name_en?: string | null
+          display_name_ka?: string | null
           id?: number
-          position?: string | null
+          position_en?: string | null
+          position_ka?: string | null
           user_id?: string | null
         }
         Update: {
           created_at?: string
-          display_name?: string | null
+          display_name_en?: string | null
+          display_name_ka?: string | null
           id?: number
-          position?: string | null
+          position_en?: string | null
+          position_ka?: string | null
           user_id?: string | null
         }
         Relationships: []
       }
       questions: {
         Row: {
-          category: string | null
+          category_en: string | null
+          category_ka: string | null
           id: number
-          title: string | null
+          title_en: string | null
+          title_ka: string | null
         }
         Insert: {
-          category?: string | null
+          category_en?: string | null
+          category_ka?: string | null
           id?: number
-          title?: string | null
+          title_en?: string | null
+          title_ka?: string | null
         }
         Update: {
-          category?: string | null
+          category_en?: string | null
+          category_ka?: string | null
           id?: number
-          title?: string | null
+          title_en?: string | null
+          title_ka?: string | null
         }
         Relationships: []
       }
