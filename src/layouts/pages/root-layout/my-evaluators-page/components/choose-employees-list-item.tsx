@@ -30,8 +30,6 @@ const {lang} = useParams()
       id={`checkbox-${user.id}`}   
           onCheckedChange={() => onChange(user || "")
           }
-
-          
           />
       </label>
     )

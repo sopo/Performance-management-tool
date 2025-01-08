@@ -1,5 +1,5 @@
 import useGetProfiles from "@/hooks/use-get-profiles"
-import ChooseEmployeesListItem from "./components/my-evalyators-list-item"
+import ChooseEmployeesListItem from "./components/choose-employees-list-item"
 import { useTranslation } from "react-i18next"
 import { useEffect, useState } from "react"
 import { Peers, Profile} from "@/types/types"
@@ -16,13 +16,11 @@ const ChooseEmployeesList:React.FC = () => {
     const {mutate, isSuccess} = usePostProfiles()
     useEffect(() => {
        if( isSuccess ){
-        
         console.log("executed")
        } 
       
     }, [isSuccess])
     const user = useAtomValue(ProfileAtom)
-
     
     if(isLoading){
         return <div>{t("global.loading")}</div>
@@ -39,13 +37,11 @@ const ChooseEmployeesList:React.FC = () => {
           return prev;
         });
       };
-    console.log("userTopass", user)
   
     const onSubmit = () => {
         const payload = mapPeerData(user as Profile, selectedProfiles as Profile[])
         mutate(payload)
     }
-    console.log(data)
     return(
         <div>
             {data?.map((user) => {
