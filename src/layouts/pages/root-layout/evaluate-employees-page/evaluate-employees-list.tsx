@@ -10,7 +10,7 @@ const EvaluateEmployeesList: React.FC = () => {
   const {lang} = useParams()
   const { data, isLoading, isError, error } = useGetProfiles();
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>{t("global.loading")}</div>;
   }
   if (isError) {
     return <div>Error: {error instanceof Error ? error.message : "Error"}</div>;
