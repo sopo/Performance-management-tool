@@ -11,5 +11,13 @@ export const MY_EVALUATORS_ROUTES = [
             <MyEvaluators />
           </Suspense>
         ),
+        children: [
+          {path: ROOT_PATHS.CHOOSE_EMPLOYEES,
+          element:(
+            <Suspense fallback={Loader}>
+            <MyEvaluators />
+          </Suspense>
+          )}
+        ]
       },
 ]

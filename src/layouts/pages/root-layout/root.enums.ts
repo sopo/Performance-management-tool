@@ -6,7 +6,8 @@ export enum ROOT_PATHS {
     USER = "user",
     PROFILE = "profile",
     LIST="list",
-    DASHBOARD="dashboard"
+    DASHBOARD="dashboard",
+    CHOOSE_EMPLOYEES= "choose-employees"
     
     
   }
