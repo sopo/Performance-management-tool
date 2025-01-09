@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 const Footer: React.FC = () => {
     const {t} = useTranslation()
   return (
-    <div className="bg-gray-100 py-6 my-8">
+    <div className="bg-gray-100 dark:bg-gray-800 py-6 my-8">
       <Screen>
 
         <Link to="/">
@@ -24,6 +24,6 @@ const Footer: React.FC = () => {
      
       </Screen>
     </div>
-  );
-};
-export default Footer;
+  )
+}
+export default Footer

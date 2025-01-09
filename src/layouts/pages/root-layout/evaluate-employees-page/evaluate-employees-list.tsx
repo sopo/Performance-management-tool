@@ -25,7 +25,7 @@ const EvaluateEmployeesList: React.FC = () => {
             return (
               <div
                 key={profile.id}
-                className="border-b py-6 flex items-center justify-between hover:cursor-pointer"
+                className="border-b border-border py-6 flex items-center justify-between hover:cursor-pointer"
               >
                 <div className="flex gap-4 items-center">
                 <Avatar>

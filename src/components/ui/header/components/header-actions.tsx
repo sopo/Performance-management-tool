@@ -15,6 +15,7 @@ import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.en
 import LangToggle from "./lang-toggle";
 import { UserAtom } from "@/store/auth";
 import { useAtomValue } from "jotai";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const HeaderActions: React.FC = () => {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ const HeaderActions: React.FC = () => {
   });
   return (
     <div className="flex gap-4 items-center">
-      <Bell className="w-9 h-9 text-icon-primary px-2 rounded hover:bg-gray-100 cursor-pointer" />
+      <Bell className="w-9 h-9 text-icon-primary px-2 rounded cursor-pointer" />
 
       <DropdownMenu>
         <DropdownMenuTrigger>
@@ -44,6 +45,7 @@ const HeaderActions: React.FC = () => {
         </DropdownMenuContent>
       </DropdownMenu>
       <LangToggle />
+      <ModeToggle />
     </div>
   );
 };

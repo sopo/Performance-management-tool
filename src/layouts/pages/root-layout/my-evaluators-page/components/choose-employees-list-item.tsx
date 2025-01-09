@@ -10,7 +10,7 @@ export interface UserListItemProps {
 const ChooseEmployeesListItem:React.FC<UserListItemProps>  = ({user, onChange}) => {
 const {lang} = useParams()
     return(
-      <label htmlFor={`checkbox-${user.id}`} key={user.id} className="border-b py-6 flex items-center justify-between hover:cursor-pointer">
+      <label htmlFor={`checkbox-${user.id}`} key={user.id} className="border-b border-border py-6 flex items-center justify-between hover:cursor-pointer">
         <div className="flex gap-4 items-center">
         <Avatar>
           <AvatarFallback>

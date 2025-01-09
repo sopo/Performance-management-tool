@@ -9,7 +9,7 @@ export interface UserListItemProps {
 const MyEvaluatorsListItem:React.FC<UserListItemProps>  = ({user}) => {
 const {lang} = useParams()
     return(
-      <div className="border-b py-6 flex items-center justify-between">
+      <div className="border-b border-border py-6 flex items-center justify-between">
         <div className="flex gap-4 items-center">
         <Avatar>
           <AvatarFallback>
