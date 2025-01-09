@@ -1,11 +1,12 @@
 import Screen from "@/components/containers/screen";
 import Text from "@/components/text/text";
 import { useTranslation } from "react-i18next";
-import EmptyState from "./components/my-evaluators-empty-state";
 import useGetMyPeers from "@/hooks/use-get-my-peers";
 import { useAtomValue } from "jotai";
 import { UserAtom } from "@/store/auth";
-import MyEvaluatorsList from "./views/my-evaluators-list";
+import MyEvaluatorsList from "./my-evaluators-list";
+import EmptyState from "../components/my-evaluators-empty-state";
+
 const MyEvaluatorsPage: React.FC = () => {
   const {t} = useTranslation()
   const user = useAtomValue(UserAtom)

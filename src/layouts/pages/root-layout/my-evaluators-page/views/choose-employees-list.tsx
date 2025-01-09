@@ -1,5 +1,5 @@
 import useGetProfiles from "@/hooks/use-get-profiles"
-import ChooseEmployeesListItem from "./components/choose-employees-list-item"
+import ChooseEmployeesListItem from "../components/choose-employees-list-item"
 import { useTranslation } from "react-i18next"
 import { useEffect, useState } from "react"
 import { Peers, Profile} from "@/types/types"

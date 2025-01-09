@@ -2,7 +2,7 @@ import { Loader } from "@/components/ui/loader";
 import { ROOT_PATHS } from "../root.enums";
 import { Suspense } from "react";
 import {MyEvaluators} from "./my-evaluators-loader";
-import ChooseEmployeesList from "./choose-employees-list";
+import ChooseEmployeesList from "./views/choose-employees-list";
 import MyEvaluatorsLayout from "./components/my-evaluators-layout";
 
 export const MY_EVALUATORS_ROUTES = [
