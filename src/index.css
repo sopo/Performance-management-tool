@@ -34,7 +34,7 @@
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 221, 39%, 11%;
     --foreground: 210 20% 98%;
     --card: 224 71.4% 4.1%;
     --card-foreground: 210 20% 98%;
@@ -58,5 +58,6 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --icon-primary: 216, 12%, 84%;
   }
 }

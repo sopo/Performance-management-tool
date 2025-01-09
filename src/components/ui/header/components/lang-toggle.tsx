@@ -26,11 +26,10 @@ import { useNavigate } from "react-router";
       <DropdownMenu>
         <DropdownMenuTrigger>
           <div className="p-2 rounded-full cursor-pointer">
-            <Earth className="h-[1.2rem] w-[1.2rem] text-onSurfaceVariant" />
+            <Earth className="h-[1.2rem] w-[1.2rem] text-icon-primary" />
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => handleLanguageChange("en")}>
             English
           </DropdownMenuItem>
