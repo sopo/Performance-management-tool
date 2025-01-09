@@ -1,11 +1,11 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Peers, Profile } from "@/types/types";
+import {  Profile } from "@/types/types";
 import { useParams } from "react-router";
 
 export interface UserListItemProps {
   user: Profile
-  onChange: (profile: Peers) => void
+  onChange: (profile: Profile) => void
 }
 const ChooseEmployeesListItem:React.FC<UserListItemProps>  = ({user, onChange}) => {
 const {lang} = useParams()

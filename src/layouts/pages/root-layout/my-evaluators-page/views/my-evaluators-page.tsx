@@ -20,7 +20,6 @@ const MyEvaluatorsPage: React.FC = () => {
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-8">
     {data && data?.length > 0 ? <MyEvaluatorsList users={data} /> : <EmptyState />}
          
-       
         </div>
       </div>
     </Screen>

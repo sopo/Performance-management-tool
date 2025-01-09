@@ -15,10 +15,11 @@ const MyEvaluatorsList:React.FC<MyEvaluatorsListProps> = ({users}) => {
     }
     return(
         <div className="w-full flex flex-col gap-8">
+            <div>
             {users.map((user) => (
-                <MyEvaluatorsListItem user={user} key={user.peer_id}/>
-              
+                <MyEvaluatorsListItem peer={user} key={user.peer_id}/>
             ))}
+            </div>
             <Button onClick={onClick}>{t("pages.myEvaluators.addMorePeers")}</Button>
         </div>
     )
