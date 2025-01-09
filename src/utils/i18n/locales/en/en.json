@@ -34,7 +34,8 @@
       "invalidCredentials": "E-mail and password does not match"
     },
     "myEvaluators": {
-      "title": "My Evaluators"
+      "title": "My Evaluators",
+      "addMorePeers": "Add More Peers"
     },
     "home": {
       "title": "Performance Management System Dashboard"
@@ -54,6 +55,9 @@
       "question": "Question",
       "submit": "Submit",
       "error": "Please answer all questions"
+    },
+    "chooseEvaluators": {
+      "title": "Choose Evaluators"
     }
   }
 }
