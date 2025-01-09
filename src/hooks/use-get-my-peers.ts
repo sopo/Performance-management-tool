@@ -1,7 +1,7 @@
 import { QUERY_KEYS } from "./enums";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { Peers } from "@/types/types";
-import { getMyPeers } from "@/api/get-peers";
+import { getMyPeers } from "@/api/get/get-peers";
 
 const useGetMyPeers = <T = Peers[]>({
   id,

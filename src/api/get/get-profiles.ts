@@ -14,3 +14,4 @@ export const getProfileWithId = async (id: string ) => {
   .eq("user_id", id)
   .throwOnError()
 }
+

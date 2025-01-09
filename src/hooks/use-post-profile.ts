@@ -1,5 +1,4 @@
-
-import { PostProfiles } from "@/api/select-profiles"
+import { PostProfiles } from "@/api/post/post-profiles"
 import { useMutation } from "@tanstack/react-query"
 
 export const usePostProfiles = () => {

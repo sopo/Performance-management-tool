@@ -1,10 +1,9 @@
 import { QUERY_KEYS } from "./enums";
 import {
-  UseQueryOptions,
   UseQueryResult,
   useQuery,
 } from "@tanstack/react-query";
-import { getProfileWithId } from "@/api/get-profiles";
+import { getProfileWithId } from "@/api/get/get-profiles";
 import { Profile } from "@/types/types";
 
 
