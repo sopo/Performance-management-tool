@@ -6,7 +6,7 @@ const FooterCols: React.FC = () => {
   const { t } = useTranslation();
   const LinkClass = "text-small text-secondary-foreground";
   return (
-    <div className="flex flex-col gap-12 md:flex-row md:gap-32 py-8 border-b">
+    <div className="flex flex-col gap-12 md:flex-row md:gap-32 py-8 border-b border-border">
     <div className="flex flex-col gap-4">
       <p className="text-small font-medium text-foreground">
         {t("global.evaluation")}

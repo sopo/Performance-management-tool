@@ -67,7 +67,7 @@ const SurveyPage:React.FC = () => {
     return (
     <Screen>
         <p className="text-3xl">{`${t("pages.survey.evaluate")} ${lang === "en" ? profile?.display_name_en : profile?.display_name_ka}`}</p>
-        <p className="text-md text-muted-foreground border-b pb-6">{t("pages.survey.total")} {total}</p>
+        <p className="text-md text-muted-foreground border-b border-border pb-6">{t("pages.survey.total")} {total}</p>
         <div className="mb-6">
         {data?.map((question, index) => (
             <div  key={question.id} className="flex flex-col gap-8 border-b py-16">

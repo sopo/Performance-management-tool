@@ -11,7 +11,7 @@ const screenVariants = cva('mx-4 my-8', {
   defaultVariants: {
     size: 'lg',
   },
-});
+})
 
 
 interface ScreenProps extends PropsWithChildren, VariantProps<typeof screenVariants> {}

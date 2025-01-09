@@ -9,6 +9,6 @@ const RootLayout: React.FC = () => {
       <Outlet />
       <Footer />
     </div>
-  );
-};
+  )
+}
 export default RootLayout;

@@ -6,7 +6,7 @@ import {  ProfileAtom, UserAtom } from './store/auth';
 import { useEffect, useState } from 'react';
 import { supabase } from './supabase';
 import useGetProfileWithId from './hooks/use-get-profile-with-id';
-import { Profile } from './types/types';
+import { ThemeProvider } from './components/theme-provider';
 
 
 function App() {
@@ -45,7 +45,10 @@ console.log("user", user)
     return <div>Loading...</div>;
   }
 
-  return <RouterProvider router={router} />;
+  return (<ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+     <RouterProvider router={router} />
+    </ThemeProvider>
+  )
 
 }
 
