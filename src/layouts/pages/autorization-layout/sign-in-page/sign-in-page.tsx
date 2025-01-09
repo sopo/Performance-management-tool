@@ -1,6 +1,6 @@
 import useSignIn from "@/hooks/use-sign-in";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
@@ -17,6 +17,8 @@ import FormContainer from "@/components/containers/form-element-containers/form-
 import { SignInForm, signInShema } from "./sign-in-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "@/components/ui/error-message";
+import { ROOT_PATHS } from "../../root-layout/root.enums";
+import { useEffect } from "react";
 
 const SignInPage: React.FC = () => {
   const {
@@ -27,14 +29,19 @@ const SignInPage: React.FC = () => {
     resolver: zodResolver(signInShema),
   });
   const { t } = useTranslation();
+  const {lang} = useParams()
   const navigate = useNavigate();
   const {
     mutate: handleLogin,
     isError,
     error,
-  } = useSignIn(() => {
-    navigate("/");
-  });
+    isSuccess
+  } = useSignIn();
+useEffect(() => {
+  if(isSuccess){
+      navigate(`/${lang}/${ROOT_PATHS.DASHBOARD}`)
+  }
+}, [isSuccess, lang, navigate])
 
   const email = register("email", {
     required: true,
@@ -44,7 +51,7 @@ const SignInPage: React.FC = () => {
   });
 
   return (
-    <div className="bg-gray-50 h-screen overflow-hidden">
+    <div className="bg-gray-50 dark:bg-gray-800 h-screen overflow-hidden">
       <Screen size="md">
         <Card>
           <CardHeader>
