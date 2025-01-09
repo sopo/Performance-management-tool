@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Peers } from "@/types/types";
+import { Trash2 } from "lucide-react";
 import { useParams } from "react-router";
 
 export interface UserListItemProps {
@@ -8,7 +9,7 @@ export interface UserListItemProps {
 const MyEvaluatorsListItem:React.FC<UserListItemProps>  = ({user}) => {
 const {lang} = useParams()
     return(
-      <div key={user.id} className="border-b py-6 flex items-center hover:cursor-pointer">
+      <div className="border-b py-6 flex items-center justify-between">
         <div className="flex gap-4 items-center">
         <Avatar>
           <AvatarFallback>
@@ -23,6 +24,7 @@ const {lang} = useParams()
           <p className="text-muted-foreground">{lang === "en" ? user.peer_position_en : user.peer_position_ka}</p>
           </div>
       </div>
+      <Trash2 className="text-muted-foreground w-6 h-6 hover:cursor-pointer"/>
       </div>
     )
 }
