@@ -49,10 +49,12 @@ const ChooseEmployeesList:React.FC = () => {
         mutate(payload)
     }
     return(
-        <div>
+        <div className="flex flex-col gap-8">
+            <div>
             {data?.map((user) => {
                 return <ChooseEmployeesListItem user={user} onChange={handleSelect} key={user.id}/>
             })}
+            </div>
             <Button onClick={onSubmit}>{t("pages.chooseEvaluators.title")}</Button>
         </div>
     )
