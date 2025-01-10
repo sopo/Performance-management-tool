@@ -1,4 +1,3 @@
-import Screen from "@/components/containers/screen";
 import useGetQuestions from "@/hooks/use-get-questions";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router";
@@ -65,7 +64,7 @@ const SurveyPage:React.FC = () => {
         return <div>error</div>
     }
     return (
-    <Screen>
+    <div>
         <p className="text-3xl">{`${t("pages.survey.evaluate")} ${lang === "en" ? profile?.display_name_en : profile?.display_name_ka}`}</p>
         <p className="text-md text-muted-foreground border-b border-border pb-6">{t("pages.survey.total")} {total}</p>
         <div className="mb-6">
@@ -83,7 +82,7 @@ const SurveyPage:React.FC = () => {
         {formError && <ErrorMessage>{t("pages.survey.error")}</ErrorMessage>}
         <Button onClick={onSubmit}>{t("pages.survey.submit")}</Button>
         </div>
-        </Screen>
+        </div>
         
     );
  
