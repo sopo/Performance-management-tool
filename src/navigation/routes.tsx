@@ -9,22 +9,6 @@ import LoggedInGuard from "./guards/logged-in-guard";
 import AuthLayout from "@/layouts/pages/autorization-layout/auth-layout";
 import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.enums";
 
-// export const routes = [
-//   { path: "/",
-//     element: <Navigate to={`${GLOBAL_PATHS.EN}/${ROOT_PATHS.DASHBOARD}`} />,},
-//   {
-//     path: "/:lang",
-//     element: (
-//       <GuestGuard>
-//         <RootLayout />
-//       </GuestGuard>
-//     ),
-//     children: [...ROOT_ROUTES, ...AUTH_ROUTES],
-//   },
-  
-// ];
-// export const router = createBrowserRouter(routes);
-
 export const routes = [
   {
     path: "/",
@@ -46,7 +30,6 @@ export const routes = [
         path: AUTH_PATHS.AUTH, 
         element: (
           <LoggedInGuard>
-            {/* <Navigate to={AUTH_PATHS.SIGN_IN} /> */}
             <AuthLayout />
           </LoggedInGuard>
         ),

@@ -30,13 +30,12 @@ const SignInPage: React.FC = () => {
     resolver: zodResolver(signInShema),
   });
   const { t } = useTranslation();
-  const {lang} = useParams()
+  const { lang } = useParams();
   const navigate = useNavigate();
   const {
     mutate: handleLogin,
     isError,
     error,
- 
   } = useSignIn(() => navigate(`/${lang}/${ROOT_PATHS.DASHBOARD}`));
 
   const email = register("email", {
@@ -49,9 +48,9 @@ const SignInPage: React.FC = () => {
   return (
     <div className="bg-gray-50 dark:bg-gray-800 h-screen overflow-hidden">
       <Screen size="md">
-      <div className="flex items-center h-10 my-4 gap-4 justify-end">
-                <LangToggle />
-                <ModeToggle />
+        <div className="flex items-center h-10 my-4 gap-4 justify-end">
+          <LangToggle />
+          <ModeToggle />
         </div>
         <Card>
           <CardHeader>
@@ -107,9 +106,7 @@ const SignInPage: React.FC = () => {
             </FormContainer>
           </CardContent>
 
-          <CardFooter>
-               
-          </CardFooter>
+          <CardFooter></CardFooter>
         </Card>
       </Screen>
     </div>
