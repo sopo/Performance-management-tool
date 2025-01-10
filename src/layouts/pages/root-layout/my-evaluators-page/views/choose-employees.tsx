@@ -11,7 +11,7 @@ import { useNavigate, useParams } from "react-router"
 import { ROOT_PATHS } from "../../root.enums"
 import useGetAvailablePeersProfiles from "@/hooks/use-get-available-peers-profiles"
 
-const ChooseEmployeesList:React.FC = () => {
+const ChooseEmployees:React.FC = () => {
     const user = useAtomValue(ProfileAtom)
     const{t} = useTranslation()
     const userId = user?.user_id || ""
@@ -59,4 +59,4 @@ const ChooseEmployeesList:React.FC = () => {
         </div>
     )
 }
-export default ChooseEmployeesList
+export default ChooseEmployees

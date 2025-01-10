@@ -46,6 +46,7 @@ export const routes = [
         path: AUTH_PATHS.AUTH, 
         element: (
           <LoggedInGuard>
+            {/* <Navigate to={AUTH_PATHS.SIGN_IN} /> */}
             <AuthLayout />
           </LoggedInGuard>
         ),

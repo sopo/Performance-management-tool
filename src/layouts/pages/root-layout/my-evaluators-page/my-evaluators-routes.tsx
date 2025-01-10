@@ -2,8 +2,8 @@ import { Loader } from "@/components/ui/loader";
 import { ROOT_PATHS } from "../root.enums";
 import { Suspense } from "react";
 import {MyEvaluators} from "./my-evaluators-loader";
-import ChooseEmployeesList from "./views/choose-employees-list";
-import MyEvaluatorsLayout from "./components/my-evaluators-layout";
+import ChooseEmployees from "./views/choose-employees";
+import MyEvaluatorsLayout from "./my-evaluators-layout";
 
 export const MY_EVALUATORS_ROUTES = [
     {
@@ -24,7 +24,7 @@ export const MY_EVALUATORS_ROUTES = [
           {path: ROOT_PATHS.CHOOSE_EMPLOYEES,
           element:(
             <Suspense fallback={Loader}>
-            <ChooseEmployeesList />
+            <ChooseEmployees />
           </Suspense>
           )},
           
