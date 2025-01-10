@@ -1,11 +1,11 @@
-import { Peers } from "@/types/types"
+import { Peer } from "@/types/types"
 import MyEvaluatorsListItem from "../components/my-evaluators-list-item"
 import { Button } from "@/components/ui/button"
 import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router"
 import { ROOT_PATHS } from "../../root.enums"
 interface MyEvaluatorsListProps{
-    users: Peers[]
+    users: Peer[]
 }
 const MyEvaluatorsList:React.FC<MyEvaluatorsListProps> = ({users}) => {
     const {t} = useTranslation()

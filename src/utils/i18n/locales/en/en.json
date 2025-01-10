@@ -45,7 +45,11 @@
       "title": "Performance Management System Dashboard"
     },
     "evaluateEmployees": {
-      "title": "Evaluate Employees"
+      "title": "Evaluate Employees",
+      "emptyState": {
+        "title": "You don't have any employees to evaluate yet",
+        "description": "People who will choose you will appear here"
+      }
     },
     "profile": {
       "title": "Profile"
