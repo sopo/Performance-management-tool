@@ -1,6 +1,6 @@
 import useSignIn from "@/hooks/use-sign-in";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
@@ -19,6 +19,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "@/components/ui/error-message";
 import { ROOT_PATHS } from "../../root-layout/root.enums";
 import { useEffect } from "react";
+import { AUTH_PATHS } from "../authorization.enums";
+import LangToggle from "@/components/ui/header/components/lang-toggle";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const SignInPage: React.FC = () => {
   const {
@@ -35,13 +38,14 @@ const SignInPage: React.FC = () => {
     mutate: handleLogin,
     isError,
     error,
-    isSuccess
-  } = useSignIn();
-useEffect(() => {
-  if(isSuccess){
-      navigate(`/${lang}/${ROOT_PATHS.DASHBOARD}`)
-  }
-}, [isSuccess, lang, navigate])
+ 
+  } = useSignIn(() => navigate(`/${lang}/${ROOT_PATHS.DASHBOARD}`));
+// useEffect(() => {
+//   if(isSuccess){
+//     console.log("signin succ")
+//       navigate(`/${lang}/${ROOT_PATHS.DASHBOARD}`)
+//   }
+// }, [isSuccess, lang, navigate])
 
   const email = register("email", {
     required: true,
@@ -53,6 +57,10 @@ useEffect(() => {
   return (
     <div className="bg-gray-50 dark:bg-gray-800 h-screen overflow-hidden">
       <Screen size="md">
+      <div className="flex items-center h-10 my-4 gap-4 justify-end">
+                <LangToggle />
+                <ModeToggle />
+        </div>
         <Card>
           <CardHeader>
             <CardTitle>
@@ -108,9 +116,7 @@ useEffect(() => {
           </CardContent>
 
           <CardFooter>
-            <p className="text-sm text-primary tracking-wide">
-              {t("pages.signIn.forgotPassword")}
-            </p>
+        
           </CardFooter>
         </Card>
       </Screen>
