@@ -1,26 +1,32 @@
-import useGetProfiles from "@/hooks/use-get-profiles"
 import ChooseEmployeesListItem from "../components/choose-employees-list-item"
 import { useTranslation } from "react-i18next"
 import { useEffect, useState } from "react"
-import { Peers, Profile} from "@/types/types"
+import { PeerInsert, Profile} from "@/types/types"
 import { usePostProfiles } from "@/hooks/use-post-profile"
 import { Button } from "@/components/ui/button"
 import { ProfileAtom } from "@/store/auth"
 import { useAtomValue } from "jotai"
 import { mapPeerData } from "@/utils/map-users-list"
+import { useNavigate, useParams } from "react-router"
+import { ROOT_PATHS } from "../../root.enums"
+import useGetAvailablePeersProfiles from "@/hooks/use-get-available-peers-profiles"
 
 const ChooseEmployeesList:React.FC = () => {
+    const user = useAtomValue(ProfileAtom)
     const{t} = useTranslation()
-    const{data, isLoading, isError} = useGetProfiles()
-    const [selectedProfiles, setSelectedProfiles] = useState<Peers[]>([])
+    const userId = user?.user_id || ""
+    const{data, isLoading, isError} = useGetAvailablePeersProfiles({id: userId})
+    const [selectedProfiles, setSelectedProfiles] = useState<PeerInsert[]>([])
     const {mutate, isSuccess} = usePostProfiles()
+    const {lang} = useParams()
+    const navigate = useNavigate()
     useEffect(() => {
        if( isSuccess ){
-        console.log("executed")
+       navigate(`/${lang}/${ROOT_PATHS.MY_EVALUATORS}`)
        } 
       
-    }, [isSuccess])
-    const user = useAtomValue(ProfileAtom)
+    }, [isSuccess, lang, navigate])
+  
     
     if(isLoading){
         return <div>{t("global.loading")}</div>
@@ -29,7 +35,7 @@ const ChooseEmployeesList:React.FC = () => {
         return <div>error</div>
     }
 
-    const handleSelect = (profile: Peers) => {
+    const handleSelect = (profile: PeerInsert) => {
         setSelectedProfiles((prev) => {
           if (!prev.some((p) => p.id === profile.id)) {
             return [...prev, profile];
@@ -43,10 +49,12 @@ const ChooseEmployeesList:React.FC = () => {
         mutate(payload)
     }
     return(
-        <div>
+        <div className="flex flex-col gap-8">
+            <div>
             {data?.map((user) => {
                 return <ChooseEmployeesListItem user={user} onChange={handleSelect} key={user.id}/>
             })}
+            </div>
             <Button onClick={onSubmit}>{t("pages.chooseEvaluators.title")}</Button>
         </div>
     )

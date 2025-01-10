@@ -1,5 +1,5 @@
 import { UseQueryOptions, UseQueryResult, useQuery } from "@tanstack/react-query";
-import { getQuestions } from "@/api/get-questions";
+import { getQuestions } from "@/api/get/get-questions";
 import { QUERY_KEYS } from "./enums"; 
 import { Questions } from "@/types/types";
 

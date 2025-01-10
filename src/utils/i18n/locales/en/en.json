@@ -3,6 +3,7 @@
     "dashboard": "Dashboard",
     "reports": "Reports",
     "myEvaluators": "My Evaluators",
+    "view": "View",
     "chooseEvaluators": "Choose peers",
     "evaluateEmployees": "Evaluate Employees",
     "profile": "Profile",
@@ -13,7 +14,10 @@
   },
   "message": {
     "noPeers": "You haven't chosen peers yet",
-    "deadline": "Deadline: 25 Dec 2025"
+    "deadline": "Deadline: 25 Dec 2025",
+    "haveChosen": "You have chosen",
+    "peers": "peers",
+    "editList": "You can change list before the deadline"
   },
   "help": {
     "help": "Help",
@@ -41,7 +45,11 @@
       "title": "Performance Management System Dashboard"
     },
     "evaluateEmployees": {
-      "title": "Evaluate Employees"
+      "title": "Evaluate Employees",
+      "emptyState": {
+        "title": "You don't have any employees to evaluate yet",
+        "description": "People who will choose you will appear here"
+      }
     },
     "profile": {
       "title": "Profile"

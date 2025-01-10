@@ -1,6 +1,6 @@
 import { QUERY_KEYS } from "./enums";
 import { UseQueryOptions, UseQueryResult, useQuery } from "@tanstack/react-query";
-import { getProfiles } from "@/api/get-profiles";
+import { getProfiles } from "@/api/get/get-profiles";
 import { Database } from "@/supabase/database.types";
 export type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 const useGetProfiles = <T = Profile[]>({

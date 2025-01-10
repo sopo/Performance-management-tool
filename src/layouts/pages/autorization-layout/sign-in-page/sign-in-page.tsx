@@ -1,6 +1,6 @@
 import useSignIn from "@/hooks/use-sign-in";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
@@ -17,6 +17,9 @@ import FormContainer from "@/components/containers/form-element-containers/form-
 import { SignInForm, signInShema } from "./sign-in-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "@/components/ui/error-message";
+import { ROOT_PATHS } from "../../root-layout/root.enums";
+import LangToggle from "@/components/ui/header/components/lang-toggle";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const SignInPage: React.FC = () => {
   const {
@@ -27,14 +30,14 @@ const SignInPage: React.FC = () => {
     resolver: zodResolver(signInShema),
   });
   const { t } = useTranslation();
+  const {lang} = useParams()
   const navigate = useNavigate();
   const {
     mutate: handleLogin,
     isError,
     error,
-  } = useSignIn(() => {
-    navigate("/");
-  });
+ 
+  } = useSignIn(() => navigate(`/${lang}/${ROOT_PATHS.DASHBOARD}`));
 
   const email = register("email", {
     required: true,
@@ -44,8 +47,12 @@ const SignInPage: React.FC = () => {
   });
 
   return (
-    <div className="bg-gray-50 h-screen overflow-hidden">
+    <div className="bg-gray-50 dark:bg-gray-800 h-screen overflow-hidden">
       <Screen size="md">
+      <div className="flex items-center h-10 my-4 gap-4 justify-end">
+                <LangToggle />
+                <ModeToggle />
+        </div>
         <Card>
           <CardHeader>
             <CardTitle>
@@ -101,9 +108,7 @@ const SignInPage: React.FC = () => {
           </CardContent>
 
           <CardFooter>
-            <p className="text-sm text-primary tracking-wide">
-              {t("pages.signIn.forgotPassword")}
-            </p>
+               
           </CardFooter>
         </Card>
       </Screen>

@@ -1,4 +1,5 @@
-import { PostAnswers } from "@/api/post-answers"
+
+import { PostAnswers } from "@/api/post/post-answers"
 import { useMutation } from "@tanstack/react-query"
 
 export const usePostAnswers = ({onSuccess}: {onSuccess: () => void}) => {

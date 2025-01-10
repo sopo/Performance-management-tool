@@ -14,3 +14,12 @@ export const getProfileWithId = async (id: string ) => {
   .eq("user_id", id)
   .throwOnError()
 }
+
+export const getAvailablePeersProfiles = async (id: string) => {
+ const {data} = await supabase
+    .from('profiles')
+    .select("*")
+    .neq('user_id', id)
+
+return data || [];
+}

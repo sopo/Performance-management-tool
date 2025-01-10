@@ -11,7 +11,7 @@ const EmptyState:React.FC = () => {
        navigate(`${ROOT_PATHS.CHOOSE_EMPLOYEES}`)
     }
     return(
-        <Card className="flex-1 bg-gray-50 dark:bg-gray-700">
+        <Card className="flex-1 bg-gray-50 dark:bg-gray-800">
         <CardHeader>
           <div className="flex justify-between items-center">
           <CardTitle className="text-lg font-normal text-muted-foreground">{t("message.noPeers")}</CardTitle>

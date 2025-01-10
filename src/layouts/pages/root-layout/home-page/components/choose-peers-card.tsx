@@ -1,9 +1,24 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import { t } from "i18next"
-import { UsersRound, CalendarFold, ArrowRight } from "lucide-react"
+import { UsersRound, ArrowRight } from "lucide-react"
+import { useNavigate, useParams } from "react-router"
+import { ROOT_PATHS } from "../../root.enums"
+import { UserAtom } from "@/store/auth"
+import { useAtomValue } from "jotai"
+import useGetMyPeers from "@/hooks/use-get-my-peers"
+import CardEmptyState from "./card-empty-state"
+import FilledCardContent from "./filled-card-content"
 
 const ChoosePeersCard:React.FC = () => {
+  const navigate=useNavigate();
+  const {lang} = useParams()
+  const onClick =() => {
+    navigate(`/${lang}/${ROOT_PATHS.MY_EVALUATORS}`)
+  }
+  const user = useAtomValue(UserAtom)
+  const userId = user?.user.id || ""
+  const {data} = useGetMyPeers({id: userId})
     return(
         <Card className="flex-1">
         <CardHeader>
@@ -14,14 +29,11 @@ const ChoosePeersCard:React.FC = () => {
           <CardDescription>{t("global.chooseEvaluators")}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 ">
-          <p  className="border-t border-border pt-4 text-foreground text-md">{t("message.noPeers")}</p>
-          <div className="flex gap-2 items-center border-b border-border pb-4 ">
-          <CalendarFold className="text-muted-foreground w-5 h-5"/>
-          <p className="text-muted-foreground text-sm">{t("message.deadline")}</p>
-          </div>
+          {data && data.length > 0 ? <FilledCardContent peerNumber={data.length} /> : <CardEmptyState />}
+          
         </CardContent>
         <CardFooter className="w-full">
-          <Button className="w-full"><ArrowRight />{t("global.chooseEvaluators")}</Button>
+          <Button onClick={onClick} className="w-full"><ArrowRight />{data && data.length > 0 ? t("global.view") :t("global.chooseEvaluators")}</Button>
         </CardFooter>
       </Card>
     )

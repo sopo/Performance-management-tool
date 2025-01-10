@@ -1,6 +1,6 @@
 import { Session } from "@supabase/supabase-js";
 import { QUERY_KEYS } from "./enums";
-import { getSession } from "@/api/get-session";
+import { getSession } from "@/api/get/get-session";
 import { UseQueryOptions, useQuery } from "@tanstack/react-query";
 
 
