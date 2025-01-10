@@ -7,6 +7,7 @@ import { AUTH_ROUTES } from "@/layouts/pages/autorization-layout/auth-routes";
 import { ROOT_PATHS } from "@/layouts/pages/root-layout/root.enums";
 import LoggedInGuard from "./guards/logged-in-guard";
 import AuthLayout from "@/layouts/pages/autorization-layout/auth-layout";
+import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.enums";
 
 // export const routes = [
 //   { path: "/",
@@ -42,7 +43,7 @@ export const routes = [
         children: [...ROOT_ROUTES], 
       },
       {
-        path: "", 
+        path: AUTH_PATHS.AUTH, 
         element: (
           <LoggedInGuard>
             <AuthLayout />
@@ -51,7 +52,7 @@ export const routes = [
         children: [...AUTH_ROUTES], 
       },
     ],
-  },
+  }
 ];
 
 export const router = createBrowserRouter(routes);

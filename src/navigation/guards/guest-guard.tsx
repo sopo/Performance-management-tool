@@ -9,7 +9,7 @@ import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.en
 const GuestGuard: React.FC<PropsWithChildren> = ({ children }) => {
   const user = useAtomValue(UserAtom);
   if (!user) {
-    return <Navigate to={`${AUTH_PATHS.SIGN_IN}`} />;
+    return <Navigate to={`${AUTH_PATHS.AUTH}/${AUTH_PATHS.SIGN_IN}`} />;
   }
   return <>{children || <Outlet />}</>;
 };

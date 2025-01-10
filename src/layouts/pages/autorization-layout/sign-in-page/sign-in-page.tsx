@@ -1,6 +1,6 @@
 import useSignIn from "@/hooks/use-sign-in";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
@@ -18,8 +18,6 @@ import { SignInForm, signInShema } from "./sign-in-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorMessage from "@/components/ui/error-message";
 import { ROOT_PATHS } from "../../root-layout/root.enums";
-import { useEffect } from "react";
-import { AUTH_PATHS } from "../authorization.enums";
 import LangToggle from "@/components/ui/header/components/lang-toggle";
 import { ModeToggle } from "@/components/mode-toggle";
 
@@ -40,12 +38,6 @@ const SignInPage: React.FC = () => {
     error,
  
   } = useSignIn(() => navigate(`/${lang}/${ROOT_PATHS.DASHBOARD}`));
-// useEffect(() => {
-//   if(isSuccess){
-//     console.log("signin succ")
-//       navigate(`/${lang}/${ROOT_PATHS.DASHBOARD}`)
-//   }
-// }, [isSuccess, lang, navigate])
 
   const email = register("email", {
     required: true,
