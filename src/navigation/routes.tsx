@@ -8,6 +8,7 @@ import { ROOT_PATHS } from "@/layouts/pages/root-layout/root.enums";
 import LoggedInGuard from "./guards/logged-in-guard";
 import AuthLayout from "@/layouts/pages/autorization-layout/auth-layout";
 import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.enums";
+import LanguageGuard from "@/utils/i18n/lang-guard";
 
 export const routes = [
   {
@@ -16,6 +17,7 @@ export const routes = [
   },
   {
     path: "/:lang",
+    element: <LanguageGuard />,
     children: [
       {
         path: "", 
