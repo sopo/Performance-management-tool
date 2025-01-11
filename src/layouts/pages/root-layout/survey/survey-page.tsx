@@ -26,7 +26,6 @@ const SurveyPage:React.FC = () => {
         id: id || ""
       });
       
-      console.log("profile", profile)
     const [formError, setFormError] = useState(false)
     const onLabelClick = ( questionId: number, label: number,) => {
         setSelectedAnswers({
@@ -49,9 +48,9 @@ const SurveyPage:React.FC = () => {
             })
 
         }
-        console.log("payload", payload)
+
         setFormError(false)
-        console.log(selectedAnswers)
+
         mutate(payload)
        }else{
         setFormError(true)
