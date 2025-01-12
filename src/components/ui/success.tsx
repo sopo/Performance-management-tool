@@ -1,11 +1,11 @@
 import { Check } from "lucide-react"
 import Text from "../text/text"
-import { useTranslation } from "react-i18next"
+import {useTranslation } from "react-i18next"
 import { Button } from "./button"
 import { useNavigate, useParams } from "react-router"
 import { ROOT_PATHS } from "@/layouts/pages/root-layout/root.enums"
 
-const Success: React.FC =() => {
+const Success: React.FC=() => {
     const {t} = useTranslation()
     const {lang} = useParams()
     const navigate = useNavigate()

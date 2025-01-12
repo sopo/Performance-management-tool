@@ -1,4 +1,4 @@
-import { InsertProfile, Profile } from "@/types/types";
+import { InsertProfile, PeerInsert, Profile } from "@/types/types";
 import { User } from "@supabase/supabase-js";
 export const mapUsersList = (users: User[]) => {
   return users?.map((user) => ({
@@ -12,7 +12,7 @@ export const mapUsersList = (users: User[]) => {
   }));
 };
 
-export const mapPeerData = (user: Profile, selectedProfiles: InsertProfile[]) => {
+export const mapPeerData = (user: Profile, selectedProfiles: InsertProfile[]) : PeerInsert[] => {
   return selectedProfiles.map((selectedProfile) => ({
     peer_display_name_en: selectedProfile.display_name_en,
     peer_display_name_ka: selectedProfile.display_name_ka,

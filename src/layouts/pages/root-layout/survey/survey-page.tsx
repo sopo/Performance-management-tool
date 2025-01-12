@@ -20,12 +20,15 @@ const SurveyPage: React.FC = () => {
   const { data } = useGetQuestions();
   const total = data?.length || 0;
   const user = useAtomValue(UserAtom);
+  const [surveyCompleted, setSurveyCompleted] = useState(false)
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, number>
   >({});
+
+
   const { mutate } = usePostAnswers({
     onSuccess: () => {
-      alert("added");
+     setSurveyCompleted(true)
     },
   });
   const {
@@ -73,9 +76,10 @@ const SurveyPage: React.FC = () => {
   }
   return (
     <div>
-      <Success />
-
-      <SurveyHead user={profile} total={total} />
+     
+    {surveyCompleted ?  <Success /> : 
+    <>
+    <SurveyHead user={profile} total={total} />
       <div className="mb-6">
         {data?.map((question, index) => (
           <SurveyQuestion
@@ -83,6 +87,7 @@ const SurveyPage: React.FC = () => {
             index={index}
             total={total}
             user={profile}
+            key={index}
           >
             <SurveyVoteButtons
               labels={labels}
@@ -96,6 +101,9 @@ const SurveyPage: React.FC = () => {
         {formError && <ErrorMessage>{t("pages.survey.error")}</ErrorMessage>}
         <Button onClick={onSubmit}>{t("pages.survey.submit")}</Button>
       </div>
+    </>
+    }
+      
     </div>
   );
 };
