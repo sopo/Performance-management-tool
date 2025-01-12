@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Peer } from "@/types/types";
 import { Link, useParams } from "react-router";
 import { ROOT_PATHS } from "../../root.enums";
+import { ArrowRight, CircleCheck } from "lucide-react";
 
 interface EvaluateEmployeesListItemProps {
   peers: Peer[];
@@ -41,7 +42,7 @@ const EvaluateEmployeesListItem: React.FC<EvaluateEmployeesListItemProps> = ({
               </p>
             </Link>
           </div>
-          <p>status</p>
+          <p>{peer.is_evaluated ? <CircleCheck className="text-green-600"/> : <ArrowRight className="text-muted-foreground"/>}</p>
         </div>
       ))}
     </div>
