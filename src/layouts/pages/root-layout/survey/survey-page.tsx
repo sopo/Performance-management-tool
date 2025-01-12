@@ -12,6 +12,7 @@ import { usePostAnswers } from "@/hooks/use-post-answers";
 import Success from "@/components/ui/success";
 import SurveyHead from "./components/survey-head";
 import SurveyQuestion from "./components/survey-question";
+import { useUpdateIsEvaluated } from "@/hooks/use-update-is-evaluated";
 
 const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const SurveyPage: React.FC = () => {
@@ -20,6 +21,7 @@ const SurveyPage: React.FC = () => {
   const { data } = useGetQuestions();
   const total = data?.length || 0;
   const user = useAtomValue(UserAtom);
+  const evaluatorId = user?.user.id || ""
   const [surveyCompleted, setSurveyCompleted] = useState(false)
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, number>
@@ -29,8 +31,13 @@ const SurveyPage: React.FC = () => {
   const { mutate } = usePostAnswers({
     onSuccess: () => {
      setSurveyCompleted(true)
+     if (id) {
+      updateStatus({ userId: id, peerId: evaluatorId, isEvaluated: true });
+    }
     },
   });
+  const {mutate: updateStatus} = useUpdateIsEvaluated()
+
   const {
     data: profile,
     isLoading: profileLoading,
