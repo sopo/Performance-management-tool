@@ -1,7 +1,7 @@
 import { supabase } from "@/supabase";
-import { Peer } from "@/types/types";
+import {  PeerInsert } from "@/types/types";
 
-export const PostProfiles = async(payload: Peer[]) => {
+export const PostProfiles = async(payload: PeerInsert[]) => {
     await supabase
     .from('selected_peers')
     .insert(payload)
