@@ -9,6 +9,7 @@ import useGetProfileWithId from "@/hooks/use-get-profile-with-id";
 import { UserAtom } from "@/store/auth";
 import { useAtomValue } from "jotai";
 import { usePostAnswers } from "@/hooks/use-post-answers";
+import Success from "@/components/ui/success";
 
 const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const SurveyPage:React.FC = () => {
@@ -64,6 +65,7 @@ const SurveyPage:React.FC = () => {
     }
     return (
     <div>
+        <Success />
         <p className="text-3xl">{`${t("pages.survey.evaluate")} ${lang === "en" ? profile?.display_name_en : profile?.display_name_ka}`}</p>
         <p className="text-md text-muted-foreground border-b border-border pb-6">{t("pages.survey.total")} {total}</p>
         <div className="mb-6">
