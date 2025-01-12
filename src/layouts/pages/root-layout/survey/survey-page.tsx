@@ -10,6 +10,7 @@ import { UserAtom } from "@/store/auth";
 import { useAtomValue } from "jotai";
 import { usePostAnswers } from "@/hooks/use-post-answers";
 import Success from "@/components/ui/success";
+import SurveyHead from "./components/survey-head";
 
 const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const SurveyPage:React.FC = () => {
@@ -66,8 +67,9 @@ const SurveyPage:React.FC = () => {
     return (
     <div>
         <Success />
-        <p className="text-3xl">{`${t("pages.survey.evaluate")} ${lang === "en" ? profile?.display_name_en : profile?.display_name_ka}`}</p>
-        <p className="text-md text-muted-foreground border-b border-border pb-6">{t("pages.survey.total")} {total}</p>
+        {/* <p className="text-3xl">{`${t("pages.survey.evaluate")} ${lang === "en" ? profile?.display_name_en : profile?.display_name_ka}`}</p>
+        <p className="text-md text-muted-foreground border-b border-border pb-6">{t("pages.survey.total")} {total}</p> */}
+        <SurveyHead user={profile} total={total}/>
         <div className="mb-6">
         {data?.map((question, index) => (
             <div  key={question.id} className="flex flex-col gap-8 border-b py-16">
