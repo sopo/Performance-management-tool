@@ -1,6 +1,7 @@
 import { supabase } from "@/supabase";
+import { Peer } from "@/types/types";
 
-export const updateIsEvaluated = async (variables: { userId: string; peerId: string; isEvaluated: boolean }): Promise<{ data: any[] | null }> => {
+export const updateIsEvaluated = async (variables: { userId: string; peerId: string; isEvaluated: boolean }): Promise<{ data: Peer[] | null }> => {
   const { userId, peerId, isEvaluated } = variables;
 
 
