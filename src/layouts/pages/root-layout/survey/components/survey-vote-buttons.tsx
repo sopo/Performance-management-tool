@@ -10,7 +10,7 @@ const SurveyVoteButtons: React.FC<SurveyVoteButtonProps> = ({ labels, selectedLa
           className={`w-16 h-12 rounded flex items-center justify-center text-sm font-medium cursor-pointer ${
             selectedLabel === label
               ? "bg-primary text-white" 
-              : "bg-gray-100 text-muted-foreground hover:bg-gray-200"
+              : "bg-gray-100 dark:bg-gray-800 text-muted-foreground hover:bg-gray-200 dark:hover:bg-gray-700"
           }`}
           onClick={() => onClick(label)}
         >
