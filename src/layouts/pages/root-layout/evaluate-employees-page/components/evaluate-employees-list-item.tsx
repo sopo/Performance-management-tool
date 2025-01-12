@@ -41,7 +41,7 @@ const EvaluateEmployeesListItem: React.FC<EvaluateEmployeesListItemProps> = ({
               </p>
             </Link>
           </div>
-          <p>status</p>
+          <p>{peer.is}</p>
         </div>
       ))}
     </div>
