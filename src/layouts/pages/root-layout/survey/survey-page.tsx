@@ -45,6 +45,7 @@ const SurveyPage: React.FC = () => {
   };
 
   const answeredAll = Object.keys(selectedAnswers).length === data?.length;
+
   const onSubmit = () => {
     if (answeredAll) {
       const payload = [];
@@ -55,11 +56,10 @@ const SurveyPage: React.FC = () => {
           peer_id: profile?.user_id as string,
           question_id: parseInt(key),
           score: value,
+          is_evaluated: true,
         });
       }
-
       setFormError(false);
-
       mutate(payload);
     } else {
       setFormError(true);
