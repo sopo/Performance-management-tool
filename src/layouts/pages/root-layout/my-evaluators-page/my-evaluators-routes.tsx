@@ -3,16 +3,12 @@ import { ROOT_PATHS } from "../root.enums";
 import { Suspense } from "react";
 import {MyEvaluators} from "./my-evaluators-loader";
 import ChooseEmployees from "./views/choose-employees";
-import MyEvaluatorsLayout from "./my-evaluators-layout";
+
 
 export const MY_EVALUATORS_ROUTES = [
     {
         path: ROOT_PATHS.MY_EVALUATORS,
-        element: (
-          <Suspense fallback={Loader}>
-            <MyEvaluatorsLayout />
-          </Suspense>
-        ),
+    
         children: [
           {
           path: "",

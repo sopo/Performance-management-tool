@@ -62,7 +62,12 @@
       "total": "Total Questions:",
       "question": "Question",
       "submit": "Submit",
-      "error": "Please answer all questions"
+      "error": "Please answer all questions",
+      "success": {
+        "title": "Survey Submitted Successfully",
+        "cta": "Evaluate Other Peers"
+        
+      }
     },
     "chooseEvaluators": {
       "title": "Choose Evaluators"

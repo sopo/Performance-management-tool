@@ -29,7 +29,7 @@ const EvaluateEmployeesListItem: React.FC<EvaluateEmployeesListItemProps> = ({
               </AvatarFallback>
             </Avatar>
             <Link
-              to={`/${lang}/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${peer.id}`}
+              to={`/${lang}/${ROOT_PATHS.EVALUATE_EMPLOYEES}/${peer.user_id}`}
               className="flex gap-2"
             >
               {lang === "en"

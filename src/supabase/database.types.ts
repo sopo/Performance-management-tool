@@ -38,6 +38,7 @@ export type Database = {
         Row: {
           created_at: string
           id: number
+          is_evaluated: boolean | null
           peer_id: string | null
           question_id: number | null
           score: number | null
@@ -46,6 +47,7 @@ export type Database = {
         Insert: {
           created_at?: string
           id?: number
+          is_evaluated?: boolean | null
           peer_id?: string | null
           question_id?: number | null
           score?: number | null
@@ -54,6 +56,7 @@ export type Database = {
         Update: {
           created_at?: string
           id?: number
+          is_evaluated?: boolean | null
           peer_id?: string | null
           question_id?: number | null
           score?: number | null
@@ -265,3 +268,15 @@ export type Enums<
 
 export type CompositeTypes<
   PublicCompositeTypeNameOrOptions extends
+    | keyof PublicSchema["CompositeTypes"]
+    | { schema: keyof Database },
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
+    ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+    : never

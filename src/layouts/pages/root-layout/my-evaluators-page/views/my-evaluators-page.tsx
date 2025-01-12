@@ -7,7 +7,9 @@ import EmptyState from "../components/my-evaluators-empty-state";
 const MyEvaluatorsPage: React.FC = () => {
   const user = useAtomValue(UserAtom);
   const userId = user?.user.id || "";
+
   const { data: users } = useGetMyPeers({ id: userId });
+
 
   if (!users || users.length === 0) {
     return (

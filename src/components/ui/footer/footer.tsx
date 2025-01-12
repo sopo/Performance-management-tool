@@ -9,7 +9,6 @@ const Footer: React.FC = () => {
   return (
     <div className="bg-gray-100 dark:bg-gray-800 py-6 my-8">
       <Screen>
-
         <Link to="/">
           <img src={Logo} className="w-8" alt="" />
         </Link>
@@ -17,7 +16,6 @@ const Footer: React.FC = () => {
           <FooterCols />
         </div>
         <div className="flex gap-2 mt-10">
-    
         <img src={Logo} className="w-6" />
         <p className="text-small text-secondary-foreground">{t("global.copyright")}</p>
         </div>
