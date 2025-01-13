@@ -11,7 +11,7 @@ const HeaderNav: React.FC = () => {
   return (
     <div>
       <div className="flex gap-8">
-        <Link to="/" className="self-center"><img src={Logo} className="w-8" alt="" /></Link>
+        <Link to={`/${lang}/${ROOT_PATHS.DASHBOARD}`} className="self-center"><img src={Logo} className="w-8" alt="" /></Link>
         <div className="flex gap-6">
         <NavLink className={navLinkClass} to={`/${lang}/${ROOT_PATHS.DASHBOARD}`}>{t("global.dashboard")}</NavLink>
         <NavLink  className={navLinkClass} to={`/${lang}/${ROOT_PATHS.MY_EVALUATORS}`}>{t("global.myEvaluators")}</NavLink>
