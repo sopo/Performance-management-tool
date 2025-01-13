@@ -6,7 +6,6 @@ import EvaluateEmployeesList from "./components/evaluate-employees-list";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
