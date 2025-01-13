@@ -61,7 +61,15 @@
       "title": "Profile"
     },
     "reports": {
-      "title": "Reports"
+      "title": "Results",
+      "description": "View your results",
+      "filledState": {
+        "title": "Your results are ready"
+      },
+      "emptyState": {
+        "title": "Your results aren't ready yet"
+      }
+      
     },
     "survey": {
       "evaluate": "Evaluate",
