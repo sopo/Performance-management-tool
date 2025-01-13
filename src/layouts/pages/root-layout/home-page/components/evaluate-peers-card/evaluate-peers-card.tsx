@@ -7,10 +7,11 @@ import { ROOT_PATHS } from "../../../root.enums"
 import { UserAtom } from "@/store/auth"
 import { useAtomValue } from "jotai"
 import CardEmptyState from "./card-empty-state"
-import FilledCardContent from "./filled-card-content"
-import useGetPeersToEvaluate from "@/hooks/use-get-peers-to-evaluate"
 
-const MyEvaluatorsCard:React.FC = () => {
+import useGetPeersToEvaluate from "@/hooks/use-get-peers-to-evaluate"
+import FilledCardContent from "./filled-card-content"
+
+const EvaluatePeersCard:React.FC = () => {
   const navigate=useNavigate();
   const {lang} = useParams()
   const onClick =() => {
@@ -29,13 +30,12 @@ const MyEvaluatorsCard:React.FC = () => {
           <CardDescription>{t("global.chooseEvaluators")}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 ">
-          {data && data.length > 0 ? <FilledCardContent peerNumber={data.length} /> : <CardEmptyState />}
-          
+          {data && data.length > 0 ?  <FilledCardContent peerNumber={data.length} /> : <CardEmptyState />}  
         </CardContent>
         <CardFooter className="w-full">
-          <Button onClick={onClick} className="w-full"><ArrowRight />{data && data.length > 0 ? t("global.view") :t("global.chooseEvaluators")}</Button>
+          <Button onClick={onClick} className="w-full"><ArrowRight />{data && data.length > 0 ? t("global.evaluateEmployees") :t("global.evaluateEmployees")}</Button>
         </CardFooter>
       </Card>
     )
 }
-export default MyEvaluatorsCard
+export default EvaluatePeersCard
