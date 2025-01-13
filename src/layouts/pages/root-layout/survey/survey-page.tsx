@@ -13,6 +13,7 @@ import Success from "@/components/ui/success";
 import SurveyHead from "./components/survey-head";
 import SurveyQuestion from "./components/survey-question";
 import { useUpdateIsEvaluated } from "@/hooks/use-update-is-evaluated";
+import useGetSelectedPeersStatus from "@/hooks/use-get-selected-peer-status";
 
 const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const SurveyPage: React.FC = () => {
@@ -26,7 +27,6 @@ const SurveyPage: React.FC = () => {
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, number>
   >({});
-
 
   const { mutate } = usePostAnswers({
     onSuccess: () => {
@@ -55,6 +55,7 @@ const SurveyPage: React.FC = () => {
   };
 
   const answeredAll = Object.keys(selectedAnswers).length === data?.length;
+  const {data: isAlreadyEvaluated} = useGetSelectedPeersStatus({userId: user?.user.id || "", peerId: profile?.user_id || ""})
 
   const onSubmit = () => {
     if (answeredAll) {
@@ -83,8 +84,7 @@ const SurveyPage: React.FC = () => {
   }
   return (
     <div>
-     
-    {surveyCompleted ?  <Success /> : 
+    {surveyCompleted || isAlreadyEvaluated ?  <Success /> : 
     <>
     <SurveyHead user={profile} total={total} />
       <div className="mb-6">
