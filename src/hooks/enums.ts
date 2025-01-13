@@ -6,6 +6,7 @@ export enum QUERY_KEYS {
     USER_SESSION = "user-session",
     PROFILES = "profiles",
     PEERS = "peers",
+    PEERS_TO_EVALUATE = "peers-to-evaluate",
     PEERS_PROFILES = 'peers-profiles',
     SELECTED_PEER_STATUS = "selected-status"
   }

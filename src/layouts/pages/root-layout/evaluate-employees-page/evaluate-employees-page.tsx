@@ -10,7 +10,7 @@ const EvaluateEmployeesPage: React.FC = () => {
     const user = useAtomValue(UserAtom)
   const userId = user?.user.id || ""
   const {data} = useGetPeersToEvaluate({id: userId})
-  
+  console.log("ecal data", data)
   if(!data || data.length === 0){
     return <EmptyState />
   }

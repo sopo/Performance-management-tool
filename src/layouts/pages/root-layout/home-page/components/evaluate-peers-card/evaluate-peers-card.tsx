@@ -7,7 +7,6 @@ import { ROOT_PATHS } from "../../../root.enums"
 import { UserAtom } from "@/store/auth"
 import { useAtomValue } from "jotai"
 import CardEmptyState from "./card-empty-state"
-
 import useGetPeersToEvaluate from "@/hooks/use-get-peers-to-evaluate"
 import FilledCardContent from "./filled-card-content"
 
@@ -15,11 +14,12 @@ const EvaluatePeersCard:React.FC = () => {
   const navigate=useNavigate();
   const {lang} = useParams()
   const onClick =() => {
-    navigate(`/${lang}/${ROOT_PATHS.MY_EVALUATORS}`)
+    navigate(`/${lang}/${ROOT_PATHS.EVALUATE_EMPLOYEES}`)
   }
   const user = useAtomValue(UserAtom)
   const userId = user?.user.id || ""
   const {data} = useGetPeersToEvaluate({id: userId})
+  console.log("datakjkjf", data)
     return(
         <Card className="flex-1">
         <CardHeader>
