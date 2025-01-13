@@ -1,7 +1,6 @@
 import Screen from "@/components/containers/screen";
 import Text from "@/components/text/text";
 import { useTranslation } from "react-i18next";
-
 import EvaluateEmployeesListItem from "./evaluate-employees-list-item";
 import { Peer } from "@/types/types";
 

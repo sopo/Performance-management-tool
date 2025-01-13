@@ -8,5 +8,6 @@ export enum QUERY_KEYS {
     PEERS = "peers",
     PEERS_TO_EVALUATE = "peers-to-evaluate",
     PEERS_PROFILES = 'peers-profiles',
-    SELECTED_PEER_STATUS = "selected-status"
+    SELECTED_PEER_STATUS = "selected-status",
+    PEERS_TO_EVALUATE_COUNT="peers-count"
   }
