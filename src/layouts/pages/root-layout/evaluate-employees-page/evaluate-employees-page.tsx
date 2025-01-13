@@ -8,34 +8,37 @@ import {
   PaginationContent,
   PaginationItem,
   PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
 } from "@/components/ui/pagination";
+import useGetPeersToEvaluateCount from "@/hooks/use-get-peers-to-evaluate-count";
+import { PEERS_LIMIT } from "@/api/get/get-peers";
+import {  useLocation, } from "react-router";
 
 const EvaluateEmployeesPage: React.FC = () => {
   const user = useAtomValue(UserAtom);
   const userId = user?.user.id || "";
-  const { data } = useGetPeersToEvaluate({ id: userId });
-  console.log("ecal data", data);
-  if (!data || data.length === 0) {
+  const {hash} = useLocation()
+  const page = hash !== "" ? parseInt(hash.replace("#", "")) : 0
+
+  const { data } = useGetPeersToEvaluate({ id: userId, page });
+  const {data: count} = useGetPeersToEvaluateCount({ id: userId })
+  if(count === undefined){
+    return <EmptyState />
+  }
+  const pageCount =  Math.ceil(count / PEERS_LIMIT)
+  const pages = new Array(pageCount).fill(0)
+  if (!data || count === 0) {
     return <EmptyState />;
   }
-
   return (
     <>
       <EvaluateEmployeesList peers={data} />
-
       <Pagination>
         <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" />
-          </PaginationItem>
+          {pages.map((_, index) => (
+            <PaginationItem key={index}>
+              <PaginationLink isActive={index === page} href={`#${index}`}>{index + 1}</PaginationLink>
+            </PaginationItem>
+          ))}
         </PaginationContent>
       </Pagination>
     </>
