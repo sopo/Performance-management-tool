@@ -46,6 +46,12 @@
     },
     "evaluateEmployees": {
       "title": "Evaluate Employees",
+      "description": "",
+      "filledState": {
+        "youHaveToEvaluate": "You have to evaluate",
+        "peers": "peers",
+        "evaluateUntilDeadline": "Please fill out survey until the deadline"
+      },
       "emptyState": {
         "title": "You don't have any employees to evaluate yet",
         "description": "People who will choose you will appear here"

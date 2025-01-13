@@ -3,14 +3,14 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { t } from "i18next"
 import { UsersRound, ArrowRight } from "lucide-react"
 import { useNavigate, useParams } from "react-router"
-import { ROOT_PATHS } from "../../root.enums"
+import { ROOT_PATHS } from "../../../root.enums"
 import { UserAtom } from "@/store/auth"
 import { useAtomValue } from "jotai"
-import useGetMyPeers from "@/hooks/use-get-my-peers"
 import CardEmptyState from "./card-empty-state"
 import FilledCardContent from "./filled-card-content"
+import useGetPeersToEvaluate from "@/hooks/use-get-peers-to-evaluate"
 
-const ChoosePeersCard:React.FC = () => {
+const MyEvaluatorsCard:React.FC = () => {
   const navigate=useNavigate();
   const {lang} = useParams()
   const onClick =() => {
@@ -18,12 +18,12 @@ const ChoosePeersCard:React.FC = () => {
   }
   const user = useAtomValue(UserAtom)
   const userId = user?.user.id || ""
-  const {data} = useGetMyPeers({id: userId})
+  const {data} = useGetPeersToEvaluate({id: userId})
     return(
         <Card className="flex-1">
         <CardHeader>
           <div className="flex justify-between items-center">
-          <CardTitle className="text-lg font-normal">{t("global.myEvaluators")}</CardTitle>
+          <CardTitle className="text-lg font-normal">{t("pages.evaluateEmployees.title")}</CardTitle>
           <UsersRound className="text-muted-foreground w-5 h-5" />
           </div>
           <CardDescription>{t("global.chooseEvaluators")}</CardDescription>
@@ -38,4 +38,4 @@ const ChoosePeersCard:React.FC = () => {
       </Card>
     )
 }
-export default ChoosePeersCard
+export default MyEvaluatorsCard
