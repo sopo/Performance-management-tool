@@ -62,7 +62,14 @@
         "title": "პროფილი"
       },
       "reports": {
-        "title": "რეპორტები"
+        "title": "შეფასების შედეგები",
+      "description": "ნახე შენი შედეგები",
+      "filledState": {
+        "title": "შენი შედეგები მზადაა"
+      },
+      "emptyState": {
+        "title": "ჯერ მზად არ არის შედეგები"
+      }
       },
       "survey": {
         "evaluate": "შეაფასე",
