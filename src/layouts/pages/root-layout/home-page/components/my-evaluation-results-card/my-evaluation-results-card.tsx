@@ -4,11 +4,7 @@ import { t } from "i18next"
 import { ArrowRight, ChartPie } from "lucide-react"
 import { useNavigate, useParams } from "react-router"
 import { ROOT_PATHS } from "../../../root.enums"
-import { UserAtom } from "@/store/auth"
-import { useAtomValue } from "jotai"
-import useGetPeersToEvaluate from "@/hooks/use-get-peers-to-evaluate"
-import FilledCardContent from "./filled-card-content"
-import CardEmptyState from "./card-empty-state"
+
 
 const MyEvaluationResultsCard:React.FC = () => {
   const navigate=useNavigate();
@@ -16,10 +12,9 @@ const MyEvaluationResultsCard:React.FC = () => {
   const onClick =() => {
     navigate(`/${lang}/${ROOT_PATHS.REPORTS}`)
   }
-  const user = useAtomValue(UserAtom)
-  const userId = user?.user.id || ""
-  const {data} = useGetPeersToEvaluate({id: userId})
-  console.log("datakjkjf", data)
+  // const user = useAtomValue(UserAtom)
+  // const userId = user?.user.id || ""
+  // const {data} = useGetPeersToEvaluate({id: userId})
     return(
         <Card className="flex-1">
         <CardHeader>
@@ -30,10 +25,10 @@ const MyEvaluationResultsCard:React.FC = () => {
           <CardDescription>{t("pages.reports.description")}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 ">
-          {data && data.length > 0 ?  <FilledCardContent /> : <CardEmptyState />}  
+          {/* {data && data.length > 0 ?  <FilledCardContent /> : <CardEmptyState />}   */}
         </CardContent>
         <CardFooter className="w-full">
-          <Button onClick={onClick} className="w-full"><ArrowRight />{data && data.length > 0 ? t("pages.reports.title") :t("global.evaluateEmployees")}</Button>
+          <Button onClick={onClick} className="w-full"><ArrowRight /> {t("pages.reports.title")} </Button>
         </CardFooter>
       </Card>
     )
