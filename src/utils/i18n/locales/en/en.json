@@ -63,6 +63,8 @@
     "reports": {
       "title": "Results",
       "description": "View your results",
+      "reportTitle": "Your report is based on",
+      "evaluators": "evaluators",
       "filledState": {
         "title": "Your results are ready"
       },
