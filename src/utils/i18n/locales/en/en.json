@@ -65,6 +65,8 @@
       "description": "View your results",
       "reportTitle": "Your report is based on",
       "evaluators": "evaluators",
+      "score": "Your score:",
+      "scoreByQuestions": "Your score based on questions",
       "filledState": {
         "title": "Your results are ready"
       },
