@@ -19,7 +19,6 @@ const EvaluatePeersCard:React.FC = () => {
   const user = useAtomValue(UserAtom)
   const userId = user?.user.id || ""
   const {data} = useGetPeersToEvaluate({id: userId})
-  console.log("datakjkjf", data)
     return(
         <Card className="flex-1">
         <CardHeader>
