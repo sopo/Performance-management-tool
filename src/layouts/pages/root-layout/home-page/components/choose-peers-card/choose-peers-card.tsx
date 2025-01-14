@@ -3,12 +3,13 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { t } from "i18next"
 import { UsersRound, ArrowRight } from "lucide-react"
 import { useNavigate, useParams } from "react-router"
-
 import { UserAtom } from "@/store/auth"
 import { useAtomValue } from "jotai"
 import useGetMyPeers from "@/hooks/use-get-my-peers"
 import { ROOT_PATHS } from "../../../root.enums"
 import FilledCardContent from "./filled-card-content"
+import CardEmptyState from "./card-empty-state"
+
 
 
 const ChoosePeersCard:React.FC = () => {
@@ -30,7 +31,7 @@ const ChoosePeersCard:React.FC = () => {
           <CardDescription>{t("global.chooseEvaluators")}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 ">
-          {data && data.length > 0 ? <FilledCardContent peerNumber={data.length} /> : <div>dasd</div>}
+          {data && data.length > 0 ? <FilledCardContent peerNumber={data.length} /> : <CardEmptyState />}
           
         </CardContent>
         <CardFooter className="w-full">
