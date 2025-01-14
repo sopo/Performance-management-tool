@@ -94,7 +94,8 @@
       "emptyState": {
         "title": "You haven't choosen peers yet",
         "description": "Please choose peers before the deadline"
-      }
+      },
+      "alreadySelected": "Already selected"
     }
   }
 }
