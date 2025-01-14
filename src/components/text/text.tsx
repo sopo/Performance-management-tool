@@ -7,7 +7,7 @@ const textVariants = cva('', {
     type: {
       'title-xlarge': 'text-3xl font-medium text-foreground tracking-normal',
       'title-large': 'text-2xl font-medium text-foreground',
-      'title-medium': 'text-xl font-semibold text-foreground',
+      'title-medium': 'text-xl font-medium text-foreground',
       'title-small': 'text-lg font-medium text-foreground',
       'paragraph-large': 'text-base font-normal text-foreground',
       'paragraph-medium': 'text-sm font-normal text-foreground',

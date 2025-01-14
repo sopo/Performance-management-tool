@@ -64,6 +64,11 @@
       "reports": {
         "title": "შეფასების შედეგები",
       "description": "ნახე შენი შედეგები",
+      "reportTitle": "შედეგებში დათვლილია",
+      "evaluators": "კოლეგის შეფასება",
+      "score": "შენი შედეგი:",
+      "totalResult": "ჯამური შედეგი",
+      "scoreByQuestions": "შედეგები კითხვების მიხედვით",
       "filledState": {
         "title": "შენი შედეგები მზადაა"
       },
