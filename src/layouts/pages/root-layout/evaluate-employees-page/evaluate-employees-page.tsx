@@ -1,6 +1,5 @@
 import { useAtomValue } from "jotai";
 import { UserAtom } from "@/store/auth";
-import useGetPeersToEvaluate from "@/hooks/use-get-peers-to-evaluate";
 import EmptyState from "./components/evaluate-employees-empty-state";
 import EvaluateEmployeesList from "./components/evaluate-employees-list";
 import {
@@ -12,6 +11,7 @@ import {
 import useGetPeersToEvaluateCount from "@/hooks/use-get-peers-to-evaluate-count";
 import { PEERS_LIMIT } from "@/api/get/get-peers";
 import {  useLocation, } from "react-router";
+import useGetPeersToEvaluateWithPagination from "@/hooks/use-get-peers-to-evaluate-with-pagination";
 
 const EvaluateEmployeesPage: React.FC = () => {
   const user = useAtomValue(UserAtom);
@@ -19,7 +19,7 @@ const EvaluateEmployeesPage: React.FC = () => {
   const {hash} = useLocation()
   const page = hash !== "" ? parseInt(hash.replace("#", "")) : 0
 
-  const { data } = useGetPeersToEvaluate({ id: userId, page });
+  const { data } = useGetPeersToEvaluateWithPagination({ id: userId, page });
   const {data: count} = useGetPeersToEvaluateCount({ id: userId })
   if(count === undefined){
     return <EmptyState />
