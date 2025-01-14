@@ -18,6 +18,7 @@ const MyEvaluationResultsCard:React.FC = () => {
   // const {data} = useGetPeersToEvaluate({id: userId})
     return(
         <Card className="flex-1">
+        
         <CardHeader>
           <div className="flex justify-between items-center">
           <CardTitle className="text-lg font-normal">{t("pages.reports.title")}</CardTitle>
@@ -30,7 +31,7 @@ const MyEvaluationResultsCard:React.FC = () => {
           {/* {data && data.length > 0 ?  <FilledCardContent /> : <CardEmptyState />}   */}
         </CardContent>
         <CardFooter className="w-full">
-          <Button onClick={onClick} className="w-full"><ArrowRight /> {t("pages.reports.title")} </Button>
+          <Button disabled={true} onClick={onClick} className="w-full"><ArrowRight /> {t("pages.reports.title")} </Button>
         </CardFooter>
       </Card>
     )
