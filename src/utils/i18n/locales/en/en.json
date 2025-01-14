@@ -67,7 +67,8 @@
         "title": "Your results are ready"
       },
       "emptyState": {
-        "title": "Your results aren't ready yet"
+        "title": "Your results aren't ready yet",
+        "description": "Your results will be available when your peers have finished evaluation"
       }
       
     },

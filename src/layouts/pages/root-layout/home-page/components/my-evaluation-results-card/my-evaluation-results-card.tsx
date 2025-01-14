@@ -4,6 +4,7 @@ import { t } from "i18next"
 import { ArrowRight, ChartPie } from "lucide-react"
 import { useNavigate, useParams } from "react-router"
 import { ROOT_PATHS } from "../../../root.enums"
+import CardEmptyState from "./card-empty-state"
 
 
 const MyEvaluationResultsCard:React.FC = () => {
@@ -17,6 +18,7 @@ const MyEvaluationResultsCard:React.FC = () => {
   // const {data} = useGetPeersToEvaluate({id: userId})
     return(
         <Card className="flex-1">
+        
         <CardHeader>
           <div className="flex justify-between items-center">
           <CardTitle className="text-lg font-normal">{t("pages.reports.title")}</CardTitle>
@@ -25,10 +27,11 @@ const MyEvaluationResultsCard:React.FC = () => {
           <CardDescription>{t("pages.reports.description")}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 ">
+          <CardEmptyState />
           {/* {data && data.length > 0 ?  <FilledCardContent /> : <CardEmptyState />}   */}
         </CardContent>
         <CardFooter className="w-full">
-          <Button onClick={onClick} className="w-full"><ArrowRight /> {t("pages.reports.title")} </Button>
+          <Button disabled={true} onClick={onClick} className="w-full"><ArrowRight /> {t("pages.reports.title")} </Button>
         </CardFooter>
       </Card>
     )
