@@ -6,6 +6,7 @@ import { useAtomValue } from "jotai";
 import { useTranslation } from "react-i18next";
 import ResultsByQuestionsCard from "./components/results-by-questions-card";
 import { Answer, Questions } from "@/types/types";
+import TotalScoreCard from "./components/total-score-card";
 
 const ReportsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ const ReportsPage: React.FC = () => {
   const { data: questions } = useGetQuestions();
   const sumOfEvaluators = [...new Set(answers?.map((answer) => answer.user_id))]
     .length;
-
+console.log("ans", answers)
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-1 border-b border-border pb-4">
@@ -27,8 +28,9 @@ const ReportsPage: React.FC = () => {
           </p>
         )}
       </div>
-     
+        <TotalScoreCard answers={answers as Answer[]} />
       <ResultsByQuestionsCard questions={questions as Questions[]} answers={answers as Answer[]} />
+
     </div>
   );
 };

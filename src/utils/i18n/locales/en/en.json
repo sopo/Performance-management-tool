@@ -67,6 +67,7 @@
       "evaluators": "evaluators",
       "score": "Your score:",
       "scoreByQuestions": "Your score based on questions",
+      "totalResult": "Total result",
       "filledState": {
         "title": "Your results are ready"
       },
