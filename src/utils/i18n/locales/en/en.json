@@ -69,7 +69,8 @@
       "scoreByQuestions": "Your score based on questions",
       "totalResult": "Total result",
       "filledState": {
-        "title": "Your results are ready"
+        "title": "Your results are ready",
+        "note": "Results by all peers will be available after deadline"
       },
       "emptyState": {
         "title": "Your results aren't ready yet",
