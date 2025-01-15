@@ -16,7 +16,7 @@ const ReportsPage: React.FC = () => {
   const { data: questions } = useGetQuestions();
   const sumOfEvaluators = [...new Set(answers?.map((answer) => answer.user_id))]
     .length;
-console.log("ans", answers)
+
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-1 border-b border-border pb-4">

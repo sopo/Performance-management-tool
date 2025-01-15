@@ -5,6 +5,10 @@ import { ArrowRight, ChartPie } from "lucide-react"
 import { useNavigate, useParams } from "react-router"
 import { ROOT_PATHS } from "../../../root.enums"
 import CardEmptyState from "./card-empty-state"
+import { useAtomValue } from "jotai"
+import { UserAtom } from "@/store/auth"
+import useGetAnswers from "@/hooks/use-get-answers"
+import FilledCardContent from "./filled-card-content"
 
 
 const MyEvaluationResultsCard:React.FC = () => {
@@ -13,9 +17,10 @@ const MyEvaluationResultsCard:React.FC = () => {
   const onClick =() => {
     navigate(`/${lang}/${ROOT_PATHS.REPORTS}`)
   }
-  // const user = useAtomValue(UserAtom)
-  // const userId = user?.user.id || ""
-  // const {data} = useGetPeersToEvaluate({id: userId})
+  const user = useAtomValue(UserAtom);
+  const userId = user?.user.id || "";
+  const { data: answers } = useGetAnswers({ id: userId });
+  const isReportReady = answers && answers.length > 0
     return(
         <Card className="flex-1">
         
@@ -27,11 +32,10 @@ const MyEvaluationResultsCard:React.FC = () => {
           <CardDescription>{t("pages.reports.description")}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-2 ">
-          <CardEmptyState />
-          {/* {data && data.length > 0 ?  <FilledCardContent /> : <CardEmptyState />}   */}
+          {isReportReady ?  <FilledCardContent /> : <CardEmptyState />}  
         </CardContent>
         <CardFooter className="w-full">
-          <Button disabled={true} onClick={onClick} className="w-full"><ArrowRight /> {t("pages.reports.title")} </Button>
+          <Button disabled={!isReportReady} onClick={onClick} className="w-full"><ArrowRight /> {t("pages.reports.title")} </Button>
         </CardFooter>
       </Card>
     )
