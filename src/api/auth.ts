@@ -1,4 +1,3 @@
-
 import { AuthProps } from "@/types/interfaces";
 import { supabase } from "../supabase/index";
 

@@ -2,7 +2,6 @@ import { getSelectedPeersStatus } from "@/api/get/get-peers";
 import { QUERY_KEYS } from "./enums";
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 
-
 const useGetSelectedPeersStatus = ({
   userId,
   peerId,

@@ -5,6 +5,6 @@ const AuthLayout: React.FC = () => {
     <div>
       <Outlet />
     </div>
-  )
-}
+  );
+};
 export default AuthLayout;

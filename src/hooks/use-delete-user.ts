@@ -7,10 +7,10 @@ export const useDeleteUser = () => {
       await deleteUser(id);
     },
     onError: (error) => {
-      console.error("Error deleting user:", error.message); 
+      console.error("Error deleting user:", error.message);
     },
     onSuccess: () => {
-      console.log("User successfully deleted"); 
+      console.log("User successfully deleted");
     },
   });
 };

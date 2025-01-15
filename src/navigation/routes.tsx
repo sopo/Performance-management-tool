@@ -20,25 +20,25 @@ export const routes = [
     element: <LanguageGuard />,
     children: [
       {
-        path: "", 
+        path: "",
         element: (
           <GuestGuard>
             <RootLayout />
           </GuestGuard>
         ),
-        children: [...ROOT_ROUTES], 
+        children: [...ROOT_ROUTES],
       },
       {
-        path: AUTH_PATHS.AUTH, 
+        path: AUTH_PATHS.AUTH,
         element: (
           <LoggedInGuard>
             <AuthLayout />
           </LoggedInGuard>
         ),
-        children: [...AUTH_ROUTES], 
+        children: [...AUTH_ROUTES],
       },
     ],
-  }
+  },
 ];
 
 export const router = createBrowserRouter(routes);

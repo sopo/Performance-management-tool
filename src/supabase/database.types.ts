@@ -4,190 +4,190 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json | undefined }
-  | Json[]
+  | Json[];
 
 export type Database = {
   graphql_public: {
     Tables: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Views: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Functions: {
       graphql: {
         Args: {
-          operationName?: string
-          query?: string
-          variables?: Json
-          extensions?: Json
-        }
-        Returns: Json
-      }
-    }
+          operationName?: string;
+          query?: string;
+          variables?: Json;
+          extensions?: Json;
+        };
+        Returns: Json;
+      };
+    };
     Enums: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     CompositeTypes: {
-      [_ in never]: never
-    }
-  }
+      [_ in never]: never;
+    };
+  };
   public: {
     Tables: {
       answers: {
         Row: {
-          created_at: string
-          id: number
-          is_evaluated: boolean | null
-          peer_id: string | null
-          question_id: number | null
-          score: number | null
-          user_id: string | null
-        }
+          created_at: string;
+          id: number;
+          is_evaluated: boolean | null;
+          peer_id: string | null;
+          question_id: number | null;
+          score: number | null;
+          user_id: string | null;
+        };
         Insert: {
-          created_at?: string
-          id?: number
-          is_evaluated?: boolean | null
-          peer_id?: string | null
-          question_id?: number | null
-          score?: number | null
-          user_id?: string | null
-        }
+          created_at?: string;
+          id?: number;
+          is_evaluated?: boolean | null;
+          peer_id?: string | null;
+          question_id?: number | null;
+          score?: number | null;
+          user_id?: string | null;
+        };
         Update: {
-          created_at?: string
-          id?: number
-          is_evaluated?: boolean | null
-          peer_id?: string | null
-          question_id?: number | null
-          score?: number | null
-          user_id?: string | null
-        }
+          created_at?: string;
+          id?: number;
+          is_evaluated?: boolean | null;
+          peer_id?: string | null;
+          question_id?: number | null;
+          score?: number | null;
+          user_id?: string | null;
+        };
         Relationships: [
           {
-            foreignKeyName: "answers_question_id_fkey"
-            columns: ["question_id"]
-            isOneToOne: false
-            referencedRelation: "questions"
-            referencedColumns: ["id"]
+            foreignKeyName: "answers_question_id_fkey";
+            columns: ["question_id"];
+            isOneToOne: false;
+            referencedRelation: "questions";
+            referencedColumns: ["id"];
           },
-        ]
-      }
+        ];
+      };
       profiles: {
         Row: {
-          created_at: string
-          display_name_en: string | null
-          display_name_ka: string | null
-          id: number
-          position_en: string | null
-          position_ka: string | null
-          user_id: string | null
-        }
+          created_at: string;
+          display_name_en: string | null;
+          display_name_ka: string | null;
+          id: number;
+          position_en: string | null;
+          position_ka: string | null;
+          user_id: string | null;
+        };
         Insert: {
-          created_at?: string
-          display_name_en?: string | null
-          display_name_ka?: string | null
-          id?: number
-          position_en?: string | null
-          position_ka?: string | null
-          user_id?: string | null
-        }
+          created_at?: string;
+          display_name_en?: string | null;
+          display_name_ka?: string | null;
+          id?: number;
+          position_en?: string | null;
+          position_ka?: string | null;
+          user_id?: string | null;
+        };
         Update: {
-          created_at?: string
-          display_name_en?: string | null
-          display_name_ka?: string | null
-          id?: number
-          position_en?: string | null
-          position_ka?: string | null
-          user_id?: string | null
-        }
-        Relationships: []
-      }
+          created_at?: string;
+          display_name_en?: string | null;
+          display_name_ka?: string | null;
+          id?: number;
+          position_en?: string | null;
+          position_ka?: string | null;
+          user_id?: string | null;
+        };
+        Relationships: [];
+      };
       questions: {
         Row: {
-          category_en: string | null
-          category_ka: string | null
-          id: number
-          title_en: string | null
-          title_ka: string | null
-        }
+          category_en: string | null;
+          category_ka: string | null;
+          id: number;
+          title_en: string | null;
+          title_ka: string | null;
+        };
         Insert: {
-          category_en?: string | null
-          category_ka?: string | null
-          id?: number
-          title_en?: string | null
-          title_ka?: string | null
-        }
+          category_en?: string | null;
+          category_ka?: string | null;
+          id?: number;
+          title_en?: string | null;
+          title_ka?: string | null;
+        };
         Update: {
-          category_en?: string | null
-          category_ka?: string | null
-          id?: number
-          title_en?: string | null
-          title_ka?: string | null
-        }
-        Relationships: []
-      }
+          category_en?: string | null;
+          category_ka?: string | null;
+          id?: number;
+          title_en?: string | null;
+          title_ka?: string | null;
+        };
+        Relationships: [];
+      };
       selected_peers: {
         Row: {
-          id: number
-          is_evaluated: boolean | null
-          peer_display_name_en: string | null
-          peer_display_name_ka: string | null
-          peer_id: string | null
-          peer_position_en: string | null
-          peer_position_ka: string | null
-          user_display_name_en: string | null
-          user_display_name_ka: string | null
-          user_id: string | null
-          user_position_en: string | null
-          user_position_ka: string | null
-        }
+          id: number;
+          is_evaluated: boolean | null;
+          peer_display_name_en: string | null;
+          peer_display_name_ka: string | null;
+          peer_id: string | null;
+          peer_position_en: string | null;
+          peer_position_ka: string | null;
+          user_display_name_en: string | null;
+          user_display_name_ka: string | null;
+          user_id: string | null;
+          user_position_en: string | null;
+          user_position_ka: string | null;
+        };
         Insert: {
-          id?: number
-          is_evaluated?: boolean | null
-          peer_display_name_en?: string | null
-          peer_display_name_ka?: string | null
-          peer_id?: string | null
-          peer_position_en?: string | null
-          peer_position_ka?: string | null
-          user_display_name_en?: string | null
-          user_display_name_ka?: string | null
-          user_id?: string | null
-          user_position_en?: string | null
-          user_position_ka?: string | null
-        }
+          id?: number;
+          is_evaluated?: boolean | null;
+          peer_display_name_en?: string | null;
+          peer_display_name_ka?: string | null;
+          peer_id?: string | null;
+          peer_position_en?: string | null;
+          peer_position_ka?: string | null;
+          user_display_name_en?: string | null;
+          user_display_name_ka?: string | null;
+          user_id?: string | null;
+          user_position_en?: string | null;
+          user_position_ka?: string | null;
+        };
         Update: {
-          id?: number
-          is_evaluated?: boolean | null
-          peer_display_name_en?: string | null
-          peer_display_name_ka?: string | null
-          peer_id?: string | null
-          peer_position_en?: string | null
-          peer_position_ka?: string | null
-          user_display_name_en?: string | null
-          user_display_name_ka?: string | null
-          user_id?: string | null
-          user_position_en?: string | null
-          user_position_ka?: string | null
-        }
-        Relationships: []
-      }
-    }
+          id?: number;
+          is_evaluated?: boolean | null;
+          peer_display_name_en?: string | null;
+          peer_display_name_ka?: string | null;
+          peer_id?: string | null;
+          peer_position_en?: string | null;
+          peer_position_ka?: string | null;
+          user_display_name_en?: string | null;
+          user_display_name_ka?: string | null;
+          user_id?: string | null;
+          user_position_en?: string | null;
+          user_position_ka?: string | null;
+        };
+        Relationships: [];
+      };
+    };
     Views: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Functions: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     Enums: {
-      [_ in never]: never
-    }
+      [_ in never]: never;
+    };
     CompositeTypes: {
-      [_ in never]: never
-    }
-  }
-}
+      [_ in never]: never;
+    };
+  };
+};
 
-type PublicSchema = Database[Extract<keyof Database, "public">]
+type PublicSchema = Database[Extract<keyof Database, "public">];
 
 export type Tables<
   PublicTableNameOrOptions extends
@@ -200,7 +200,7 @@ export type Tables<
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
       Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
-      Row: infer R
+      Row: infer R;
     }
     ? R
     : never
@@ -208,11 +208,11 @@ export type Tables<
         PublicSchema["Views"])
     ? (PublicSchema["Tables"] &
         PublicSchema["Views"])[PublicTableNameOrOptions] extends {
-        Row: infer R
+        Row: infer R;
       }
       ? R
       : never
-    : never
+    : never;
 
 export type TablesInsert<
   PublicTableNameOrOptions extends
@@ -223,17 +223,17 @@ export type TablesInsert<
     : never = never,
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Insert: infer I
+      Insert: infer I;
     }
     ? I
     : never
   : PublicTableNameOrOptions extends keyof PublicSchema["Tables"]
     ? PublicSchema["Tables"][PublicTableNameOrOptions] extends {
-        Insert: infer I
+        Insert: infer I;
       }
       ? I
       : never
-    : never
+    : never;
 
 export type TablesUpdate<
   PublicTableNameOrOptions extends
@@ -244,30 +244,29 @@ export type TablesUpdate<
     : never = never,
 > = PublicTableNameOrOptions extends { schema: keyof Database }
   ? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
-      Update: infer U
+      Update: infer U;
     }
     ? U
     : never
   : PublicTableNameOrOptions extends keyof PublicSchema["Tables"]
     ? PublicSchema["Tables"][PublicTableNameOrOptions] extends {
-        Update: infer U
+        Update: infer U;
       }
       ? U
       : never
-    : never
+    : never;
 
-    export type Enums<
-    PublicEnumNameOrOptions extends
-      | keyof PublicSchema["Enums"]
-      | { schema: keyof Database },
-    EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
-      ? keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
-      : never = never
-  > = PublicEnumNameOrOptions extends { schema: keyof Database }
-    ? EnumName extends keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
-      ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
-      : never
-    : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
+export type Enums<
+  PublicEnumNameOrOptions extends
+    | keyof PublicSchema["Enums"]
+    | { schema: keyof Database },
+  EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
+    ? keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
+    : never = never,
+> = PublicEnumNameOrOptions extends { schema: keyof Database }
+  ? EnumName extends keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
+    ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
+    : never
+  : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
     ? PublicSchema["Enums"][PublicEnumNameOrOptions]
     : never;
-  

@@ -76,7 +76,6 @@
         "title": "Your results aren't ready yet",
         "description": "Your results will be available when your peers have finished evaluation"
       }
-      
     },
     "survey": {
       "evaluate": "Evaluate",
@@ -87,7 +86,6 @@
       "success": {
         "title": "Survey Submitted Successfully",
         "cta": "Evaluate Other Peers"
-        
       }
     },
     "chooseEvaluators": {

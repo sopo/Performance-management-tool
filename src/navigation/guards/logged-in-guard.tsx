@@ -5,7 +5,7 @@ import { Navigate, Outlet, useParams } from "react-router";
 import { ROOT_PATHS } from "@/layouts/pages/root-layout/root.enums";
 const LoggedInGuard: React.FC<PropsWithChildren> = ({ children }) => {
   const user = useAtomValue(UserAtom);
-  const {lang} = useParams()
+  const { lang } = useParams();
   if (user) {
     return <Navigate to={`/${lang}/${ROOT_PATHS.DASHBOARD}`} />;
   }

@@ -16,7 +16,7 @@ const ChooseEmployeesListItem: React.FC<UserListItemProps> = ({
   disabled,
 }) => {
   const { lang } = useParams();
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <label
       htmlFor={`checkbox-${user.id}`}
@@ -41,10 +41,14 @@ const ChooseEmployeesListItem: React.FC<UserListItemProps> = ({
           </p>
         </div>
       </div>
-      {disabled ?<div className="flex gap-2"> 
-        <Check className="text-green-500"/> 
-        <p className="text-muted-foreground text-sm">{t("pages.chooseEvaluators.alreadySelected")}</p>
-        </div> : (
+      {disabled ? (
+        <div className="flex gap-2">
+          <Check className="text-green-500" />
+          <p className="text-muted-foreground text-sm">
+            {t("pages.chooseEvaluators.alreadySelected")}
+          </p>
+        </div>
+      ) : (
         <Checkbox
           className="h-6 w-6"
           id={`checkbox-${user.id}`}

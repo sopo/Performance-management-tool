@@ -5,7 +5,6 @@ import { UserAtom } from "@/store/auth";
 import { Navigate, Outlet } from "react-router";
 import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.enums";
 
-
 const GuestGuard: React.FC<PropsWithChildren> = ({ children }) => {
   const user = useAtomValue(UserAtom);
   if (!user) {
