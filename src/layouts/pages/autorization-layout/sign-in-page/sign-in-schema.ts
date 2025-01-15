@@ -1,10 +1,15 @@
-import {z} from "zod"
+import { z } from "zod";
 
 export const signInShema = z.object({
-    email: z.string().min(1, { message: "required" }).email({ message: "envalidEmail" }),
+  email: z
+    .string()
+    .min(1, { message: "required" })
+    .email({ message: "envalidEmail" }),
 
-    password: z.string().min(1, { message: "required" }) 
-    .min(6, { message: "smallPassword" })
-})
+  password: z
+    .string()
+    .min(1, { message: "required" })
+    .min(6, { message: "smallPassword" }),
+});
 
-export type SignInForm = z.infer<typeof signInShema>
+export type SignInForm = z.infer<typeof signInShema>;

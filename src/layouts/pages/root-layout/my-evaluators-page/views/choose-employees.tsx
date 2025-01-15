@@ -31,22 +31,22 @@ const ChooseEmployees: React.FC = () => {
     page,
   });
 
-  const {data: chosenPeers} = useGetMyPeers({id: userId})
-const [matchedPeers, setMatchedPeers] = useState<Peer[]>([]);
+  const { data: chosenPeers } = useGetMyPeers({ id: userId });
+  const [matchedPeers, setMatchedPeers] = useState<Peer[]>([]);
   const [selectedProfiles, setSelectedProfiles] = useState<PeerInsert[]>([]);
   const { mutate, isSuccess } = usePostProfiles();
   const { lang } = useParams();
   const navigate = useNavigate();
   const { data: count } = useGetAvailablePeersProfilesCount({ id: userId });
-  
+
   useEffect(() => {
     if (data && chosenPeers) {
-      const matched = chosenPeers.filter(peer =>
-        data.some(profile => profile.user_id === peer.peer_id)
+      const matched = chosenPeers.filter((peer) =>
+        data.some((profile) => profile.user_id === peer.peer_id),
       );
-      setMatchedPeers(matched); 
+      setMatchedPeers(matched);
     }
-  }, [data, chosenPeers]); 
+  }, [data, chosenPeers]);
 
   useEffect(() => {
     if (isSuccess) {
@@ -84,7 +84,9 @@ const [matchedPeers, setMatchedPeers] = useState<Peer[]>([]);
     <div className="flex flex-col gap-8">
       <div>
         {data?.map((user) => {
-          const isMatched = matchedPeers.some((matchedPeer) => matchedPeer.peer_id === user.user_id);
+          const isMatched = matchedPeers.some(
+            (matchedPeer) => matchedPeer.peer_id === user.user_id,
+          );
 
           return (
             <ChooseEmployeesListItem

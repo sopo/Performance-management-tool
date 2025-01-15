@@ -5,7 +5,7 @@ import FooterCols from "./footer-cols";
 import { useTranslation } from "react-i18next";
 
 const Footer: React.FC = () => {
-    const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <div className="bg-gray-100 dark:bg-gray-800 py-6 my-8">
       <Screen>
@@ -16,12 +16,13 @@ const Footer: React.FC = () => {
           <FooterCols />
         </div>
         <div className="flex gap-2 mt-10">
-        <img src={Logo} className="w-6" />
-        <p className="text-small text-secondary-foreground">{t("global.copyright")}</p>
+          <img src={Logo} className="w-6" />
+          <p className="text-small text-secondary-foreground">
+            {t("global.copyright")}
+          </p>
         </div>
-     
       </Screen>
     </div>
-  )
-}
-export default Footer
+  );
+};
+export default Footer;

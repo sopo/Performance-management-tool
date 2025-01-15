@@ -10,14 +10,9 @@ const MyEvaluatorsPage: React.FC = () => {
 
   const { data: users } = useGetMyPeers({ id: userId });
 
-
   if (!users || users.length === 0) {
-    return (
-        <EmptyState />
-    );
+    return <EmptyState />;
   }
-  return (
-     <MyEvaluatorsList users={users} />
-  );
+  return <MyEvaluatorsList users={users} />;
 };
 export default MyEvaluatorsPage;

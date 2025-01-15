@@ -7,12 +7,14 @@ export const mapUsersList = (users: User[]) => {
     app_metadata: user?.app_metadata ?? {},
     user_metadata: user?.user_metadata ?? {},
     aud: user?.aud ?? "",
-    fullName: user?.user_metadata.displayName
-
+    fullName: user?.user_metadata.displayName,
   }));
 };
 
-export const mapPeerData = (user: Profile, selectedProfiles: InsertProfile[]) : PeerInsert[] => {
+export const mapPeerData = (
+  user: Profile,
+  selectedProfiles: InsertProfile[],
+): PeerInsert[] => {
   return selectedProfiles.map((selectedProfile) => ({
     peer_display_name_en: selectedProfile.display_name_en,
     peer_display_name_ka: selectedProfile.display_name_ka,
@@ -24,5 +26,5 @@ export const mapPeerData = (user: Profile, selectedProfiles: InsertProfile[]) : 
     user_id: user.user_id,
     user_position_en: user.position_en,
     user_position_ka: user.position_ka,
-  }))
-}
+  }));
+};

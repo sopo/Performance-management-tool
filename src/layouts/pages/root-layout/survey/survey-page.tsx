@@ -22,21 +22,21 @@ const SurveyPage: React.FC = () => {
   const { data } = useGetQuestions();
   const total = data?.length || 0;
   const user = useAtomValue(UserAtom);
-  const evaluatorId = user?.user.id || ""
-  const [surveyCompleted, setSurveyCompleted] = useState(false)
+  const evaluatorId = user?.user.id || "";
+  const [surveyCompleted, setSurveyCompleted] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, number>
   >({});
 
   const { mutate } = usePostAnswers({
     onSuccess: () => {
-     setSurveyCompleted(true)
-     if (id) {
-      updateStatus({ userId: id, peerId: evaluatorId, isEvaluated: true });
-    }
+      setSurveyCompleted(true);
+      if (id) {
+        updateStatus({ userId: id, peerId: evaluatorId, isEvaluated: true });
+      }
     },
   });
-  const {mutate: updateStatus} = useUpdateIsEvaluated()
+  const { mutate: updateStatus } = useUpdateIsEvaluated();
 
   const {
     data: profile,
@@ -55,7 +55,10 @@ const SurveyPage: React.FC = () => {
   };
 
   const answeredAll = Object.keys(selectedAnswers).length === data?.length;
-  const {data: isAlreadyEvaluated} = useGetSelectedPeersStatus({userId: user?.user.id || "", peerId: profile?.user_id || ""})
+  const { data: isAlreadyEvaluated } = useGetSelectedPeersStatus({
+    userId: user?.user.id || "",
+    peerId: profile?.user_id || "",
+  });
 
   const onSubmit = () => {
     if (answeredAll) {
@@ -84,33 +87,36 @@ const SurveyPage: React.FC = () => {
   }
   return (
     <div>
-    {surveyCompleted || isAlreadyEvaluated ?  <Success /> : 
-    <>
-    <SurveyHead user={profile} total={total} />
-      <div className="mb-6">
-        {data?.map((question, index) => (
-          <SurveyQuestion
-            question={question}
-            index={index}
-            total={total}
-            user={profile}
-            key={index}
-          >
-            <SurveyVoteButtons
-              labels={labels}
-              selectedLabel={selectedAnswers[question.id]}
-              onClick={(label) => onLabelClick(question.id, label)}
-            />
-          </SurveyQuestion>
-        ))}
-      </div>
-      <div className="flex flex-col gap-4">
-        {formError && <ErrorMessage>{t("pages.survey.error")}</ErrorMessage>}
-        <Button onClick={onSubmit}>{t("pages.survey.submit")}</Button>
-      </div>
-    </>
-    }
-      
+      {surveyCompleted || isAlreadyEvaluated ? (
+        <Success />
+      ) : (
+        <>
+          <SurveyHead user={profile} total={total} />
+          <div className="mb-6">
+            {data?.map((question, index) => (
+              <SurveyQuestion
+                question={question}
+                index={index}
+                total={total}
+                user={profile}
+                key={index}
+              >
+                <SurveyVoteButtons
+                  labels={labels}
+                  selectedLabel={selectedAnswers[question.id]}
+                  onClick={(label) => onLabelClick(question.id, label)}
+                />
+              </SurveyQuestion>
+            ))}
+          </div>
+          <div className="flex flex-col gap-4">
+            {formError && (
+              <ErrorMessage>{t("pages.survey.error")}</ErrorMessage>
+            )}
+            <Button onClick={onSubmit}>{t("pages.survey.submit")}</Button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

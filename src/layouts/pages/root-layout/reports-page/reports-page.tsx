@@ -28,9 +28,11 @@ const ReportsPage: React.FC = () => {
           </p>
         )}
       </div>
-        <TotalScoreCard answers={answers as Answer[]} />
-      <ResultsByQuestionsCard questions={questions as Questions[]} answers={answers as Answer[]} />
-
+      <TotalScoreCard answers={answers as Answer[]} />
+      <ResultsByQuestionsCard
+        questions={questions as Questions[]}
+        answers={answers as Answer[]}
+      />
     </div>
   );
 };

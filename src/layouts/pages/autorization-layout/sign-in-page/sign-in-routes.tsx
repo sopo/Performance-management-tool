@@ -5,11 +5,8 @@ import { Route } from "@/types/interfaces";
 import { Loader } from "@/components/ui/loader";
 import { Navigate } from "react-router";
 
-
 export const SIGN_IN_ROUTES: Route[] = [
-  {path: "",
-    element: <Navigate to={AUTH_PATHS.SIGN_IN} />
-  },
+  { path: "", element: <Navigate to={AUTH_PATHS.SIGN_IN} /> },
   {
     path: AUTH_PATHS.SIGN_IN,
     element: (

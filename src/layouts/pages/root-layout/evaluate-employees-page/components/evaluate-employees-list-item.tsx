@@ -42,7 +42,13 @@ const EvaluateEmployeesListItem: React.FC<EvaluateEmployeesListItemProps> = ({
               </p>
             </Link>
           </div>
-          <p>{peer.is_evaluated ? <CircleCheck className="text-green-600"/> : <ArrowRight className="text-muted-foreground"/>}</p>
+          <p>
+            {peer.is_evaluated ? (
+              <CircleCheck className="text-green-600" />
+            ) : (
+              <ArrowRight className="text-muted-foreground" />
+            )}
+          </p>
         </div>
       ))}
     </div>
