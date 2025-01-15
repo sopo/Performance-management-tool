@@ -1,18 +1,17 @@
 import { Answer } from "@/types/types";
-
+import mean from 'lodash/mean';
 export const getAverageScore = (answers: Answer[]) => {
   if (!answers || answers === undefined) {
     return;
   }
-  const validScores = answers.filter(
+  const validAnswers = answers.filter(
     (answer) => answer.score !== null && answer.score !== undefined,
   );
-  const scores = validScores.map((answer) => answer.score);
-  const sum = scores.reduce((acc: number, score: number | null | undefined) => {
-    return acc + (score || 0);
-  }, 0);
+  const scores = validAnswers.map((answer) => answer.score);
 
-  const average = scores.length > 0 ? sum / scores.length : 0;
+
+  const average = mean(scores);
 
   return average;
 };
+
