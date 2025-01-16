@@ -39,9 +39,7 @@ const SurveyPage: React.FC = () => {
   const { mutate: updateStatus } = useUpdateIsEvaluated();
 
   const {
-    data: profile,
-    isLoading: profileLoading,
-    isError: profileError,
+    data: profile
   } = useGetProfileWithId({
     id: id || "",
   });
@@ -79,12 +77,7 @@ const SurveyPage: React.FC = () => {
       setFormError(true);
     }
   };
-  if (profileLoading) {
-    return <div>loading</div>;
-  }
-  if (profileError) {
-    return <div>error</div>;
-  }
+
   return (
     <div>
       {surveyCompleted || isAlreadyEvaluated ? (

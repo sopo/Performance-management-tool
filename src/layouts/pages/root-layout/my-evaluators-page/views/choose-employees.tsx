@@ -42,7 +42,7 @@ const ChooseEmployees: React.FC = () => {
       : "";
 
   console.log(searchQuery);
-  const { data, isLoading, isError } = useGetAvailablePeersProfiles({
+  const { data } = useGetAvailablePeersProfiles({
     id: userId,
     page,
     searchQuery,
@@ -71,18 +71,9 @@ const ChooseEmployees: React.FC = () => {
     }
   }, [isSuccess, lang, navigate]);
 
-  if (count === undefined) {
-    return <div>no peersavailable</div>;
-  }
-  const pageCount = Math.ceil(count / PEERS_LIMIT);
-  const pages = new Array(pageCount).fill(0);
 
-  if (isLoading) {
-    return <div>{t("global.loading")}</div>;
-  }
-  if (isError) {
-    return <div>error</div>;
-  }
+  const pageCount = Math.ceil(count?? 0 / PEERS_LIMIT);
+  const pages = new Array(pageCount).fill(0);
 
   const handleSelect = (profile: PeerInsert) => {
     setSelectedProfiles((prev) => {
