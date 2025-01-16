@@ -9,7 +9,6 @@ import useGetProfileWithId from "./hooks/use-get-profile-with-id";
 import { ThemeProvider } from "./components/theme-provider";
 import Loader from "./components/ui/loader";
 
-
 function App() {
   const setUser = useSetAtom(UserAtom);
   const setProfile = useSetAtom(ProfileAtom);

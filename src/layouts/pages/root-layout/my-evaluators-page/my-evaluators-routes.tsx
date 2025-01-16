@@ -12,7 +12,7 @@ export const MY_EVALUATORS_ROUTES = [
       {
         path: "",
         element: (
-          <Suspense fallback={<Loader/>}>
+          <Suspense fallback={<Loader />}>
             <MyEvaluators />
           </Suspense>
         ),
@@ -20,7 +20,7 @@ export const MY_EVALUATORS_ROUTES = [
       {
         path: ROOT_PATHS.CHOOSE_EMPLOYEES,
         element: (
-          <Suspense fallback={<Loader/>}>
+          <Suspense fallback={<Loader />}>
             <ChooseEmployees />
           </Suspense>
         ),
