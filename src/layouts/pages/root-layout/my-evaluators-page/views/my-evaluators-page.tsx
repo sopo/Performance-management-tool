@@ -10,8 +10,8 @@ const MyEvaluatorsPage: React.FC = () => {
   const userId = user?.user.id || "";
 
   const { data: users, isLoading } = useGetMyPeers({ id: userId });
-  if(isLoading){
-    return <Loader />
+  if (isLoading) {
+    return <Loader />;
   }
   if (!users || users.length === 0) {
     return <EmptyState />;

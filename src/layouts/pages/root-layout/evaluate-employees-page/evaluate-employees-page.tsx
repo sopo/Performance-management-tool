@@ -19,13 +19,16 @@ const EvaluateEmployeesPage: React.FC = () => {
   const userId = user?.user.id || "";
   const { hash } = useLocation();
   const page = hash !== "" ? parseInt(hash.replace("#", "")) : 0;
-  const { data, isLoading } = useGetPeersToEvaluateWithPagination({ id: userId, page });
+  const { data, isLoading } = useGetPeersToEvaluateWithPagination({
+    id: userId,
+    page,
+  });
   const { data: count } = useGetPeersToEvaluateCount({ id: userId });
 
-  const pageCount = Math.ceil(count?? 0 / PEERS_LIMIT);
+  const pageCount = Math.ceil(count ?? 0 / PEERS_LIMIT);
   const pages = new Array(pageCount).fill(0);
-  if(isLoading){
-    return <Loader />
+  if (isLoading) {
+    return <Loader />;
   }
   if (!data || count === 0) {
     return <EmptyState />;
