@@ -105,7 +105,6 @@ const SignInPage: React.FC = () => {
               </div>
             </FormContainer>
           </CardContent>
-
           <CardFooter></CardFooter>
         </Card>
       </Screen>

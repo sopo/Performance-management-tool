@@ -16,6 +16,7 @@ import useGetMyPeers from "@/hooks/use-get-my-peers";
 import { ROOT_PATHS } from "../../../root.enums";
 import FilledCardContent from "./filled-card-content";
 import CardEmptyState from "./card-empty-state";
+import { SkeletonCard } from "@/components/ui/skeleton-card";
 
 const ChoosePeersCard: React.FC = () => {
   const navigate = useNavigate();
@@ -25,7 +26,11 @@ const ChoosePeersCard: React.FC = () => {
   };
   const user = useAtomValue(UserAtom);
   const userId = user?.user.id || "";
-  const { data } = useGetMyPeers({ id: userId });
+  const { data, isLoading } = useGetMyPeers({ id: userId });
+
+  if (isLoading) {
+    return <SkeletonCard />;
+  }
   return (
     <Card className="flex-1">
       <CardHeader>

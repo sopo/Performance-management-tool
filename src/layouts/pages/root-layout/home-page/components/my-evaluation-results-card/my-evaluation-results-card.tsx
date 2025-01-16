@@ -16,6 +16,7 @@ import { useAtomValue } from "jotai";
 import { UserAtom } from "@/store/auth";
 import useGetAnswers from "@/hooks/use-get-answers";
 import FilledCardContent from "./filled-card-content";
+import { SkeletonCard } from "@/components/ui/skeleton-card";
 
 const MyEvaluationResultsCard: React.FC = () => {
   const navigate = useNavigate();
@@ -25,7 +26,10 @@ const MyEvaluationResultsCard: React.FC = () => {
   };
   const user = useAtomValue(UserAtom);
   const userId = user?.user.id || "";
-  const { data: answers } = useGetAnswers({ id: userId });
+  const { data: answers, isLoading } = useGetAnswers({ id: userId });
+  if (isLoading) {
+    return <SkeletonCard />;
+  }
   const isReportReady = answers && answers.length > 0;
   return (
     <Card className="flex-1">

@@ -27,6 +27,7 @@ import useGetMyPeers from "@/hooks/use-get-my-peers";
 import Text from "@/components/text/text";
 import SearchBar from "../components/search-bar";
 import qs from "qs";
+import { SkeletonList } from "@/components/ui/skeleton-list";
 const ChooseEmployees: React.FC = () => {
   const user = useAtomValue(ProfileAtom);
   const { t } = useTranslation();
@@ -42,13 +43,15 @@ const ChooseEmployees: React.FC = () => {
       : "";
 
   console.log(searchQuery);
-  const { data, isLoading, isError } = useGetAvailablePeersProfiles({
+  const { data, isLoading: allPeersLoading } = useGetAvailablePeersProfiles({
     id: userId,
     page,
     searchQuery,
   });
 
-  const { data: chosenPeers } = useGetMyPeers({ id: userId });
+  const { data: chosenPeers, isLoading: chosenPeersLoading } = useGetMyPeers({
+    id: userId,
+  });
   const [matchedPeers, setMatchedPeers] = useState<Peer[]>([]);
   const [selectedProfiles, setSelectedProfiles] = useState<PeerInsert[]>([]);
   const { mutate, isSuccess } = usePostProfiles();
@@ -70,19 +73,11 @@ const ChooseEmployees: React.FC = () => {
       navigate(`/${lang}/${ROOT_PATHS.MY_EVALUATORS}`);
     }
   }, [isSuccess, lang, navigate]);
-
   if (count === undefined) {
-    return <div>no peersavailable</div>;
+    return <p>{t("global.noPeersAvailable")}</p>;
   }
   const pageCount = Math.ceil(count / PEERS_LIMIT);
   const pages = new Array(pageCount).fill(0);
-
-  if (isLoading) {
-    return <div>{t("global.loading")}</div>;
-  }
-  if (isError) {
-    return <div>error</div>;
-  }
 
   const handleSelect = (profile: PeerInsert) => {
     setSelectedProfiles((prev) => {
@@ -101,6 +96,7 @@ const ChooseEmployees: React.FC = () => {
     <div className="flex flex-col gap-8">
       <Text type="title-large">{t("pages.chooseEvaluators.title")}</Text>
       <SearchBar />
+      {chosenPeersLoading || (allPeersLoading && <SkeletonList />)}
       <div>
         {data?.map((user) => {
           const isMatched = matchedPeers.some(

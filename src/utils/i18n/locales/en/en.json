@@ -10,8 +10,8 @@
     "logOut": "Log Out",
     "evaluation": "Evaluation",
     "copyright": "All Rights Reserved",
-    "loading": "Loading...",
-    "search": "Search..."
+    "search": "Search...",
+    "noPeersAvailable": "Peers are not available"
   },
   "message": {
     "noPeers": "You haven't chosen peers yet",
