@@ -27,7 +27,7 @@ const EvaluatePeersCard: React.FC = () => {
   const user = useAtomValue(UserAtom);
   const userId = user?.user.id || "";
   const { data, isLoading } = useGetPeersToEvaluate({ id: userId });
-  
+
   if (isLoading) {
     return <SkeletonCard />;
   }
