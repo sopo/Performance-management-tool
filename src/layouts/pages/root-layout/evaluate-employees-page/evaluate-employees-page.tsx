@@ -25,8 +25,8 @@ const EvaluateEmployeesPage: React.FC = () => {
     return <EmptyState />;
   }
   const pageCount = Math.ceil(count / PEERS_LIMIT);
-      const pages = new Array(pageCount).fill(0);
-    if (!data || count === 0) {
+  const pages = new Array(pageCount).fill(0);
+  if (!data || count === 0) {
     return <EmptyState />;
   }
   return (
