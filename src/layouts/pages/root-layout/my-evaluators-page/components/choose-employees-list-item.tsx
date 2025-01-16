@@ -16,14 +16,13 @@ const ChooseEmployeesListItem: React.FC<UserListItemProps> = ({
 }) => {
   const { t } = useTranslation();
 
-
   return (
     <label
       htmlFor={`checkbox-${user.id}`}
       key={user.id}
       className="flex border-b border-border py-6  justify-between hover:cursor-pointer"
     >
-     <UserListItem user={user} />
+      <UserListItem user={user} />
       {disabled ? (
         <div className="flex gap-2">
           <Check className="text-green-500" />

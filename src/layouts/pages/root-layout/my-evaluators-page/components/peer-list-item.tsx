@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Peer} from "@/types/types";
+import { Peer } from "@/types/types";
 import { useParams } from "react-router";
 interface PeerListItemProps {
   peer: Peer;

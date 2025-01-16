@@ -15,8 +15,8 @@ const EvaluateEmployeesList: React.FC<EvaluateEmployeesListProps> = ({
     <div className="flex flex-col gap-8">
       <Text type="title-large">{t("pages.evaluateEmployees.title")}</Text>
       <div>
-        {peers.map((peer) => ( 
-            <EvaluateEmployeesListItem peer={peer} key={peer.id}/>
+        {peers.map((peer) => (
+          <EvaluateEmployeesListItem peer={peer} key={peer.id} />
         ))}
       </div>
     </div>
