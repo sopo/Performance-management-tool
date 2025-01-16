@@ -71,8 +71,7 @@ const ChooseEmployees: React.FC = () => {
     }
   }, [isSuccess, lang, navigate]);
 
-
-  const pageCount = Math.ceil(count?? 0 / PEERS_LIMIT);
+  const pageCount = Math.ceil(count ?? 0 / PEERS_LIMIT);
   const pages = new Array(pageCount).fill(0);
 
   const handleSelect = (profile: PeerInsert) => {

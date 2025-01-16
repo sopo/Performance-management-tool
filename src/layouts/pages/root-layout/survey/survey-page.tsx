@@ -38,9 +38,7 @@ const SurveyPage: React.FC = () => {
   });
   const { mutate: updateStatus } = useUpdateIsEvaluated();
 
-  const {
-    data: profile
-  } = useGetProfileWithId({
+  const { data: profile } = useGetProfileWithId({
     id: id || "",
   });
 
