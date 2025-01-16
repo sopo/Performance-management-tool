@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { supabase } from "./supabase";
 import useGetProfileWithId from "./hooks/use-get-profile-with-id";
 import { ThemeProvider } from "./components/theme-provider";
+import Loader from "./components/ui/loader";
+
 
 function App() {
   const setUser = useSetAtom(UserAtom);
@@ -39,7 +41,7 @@ function App() {
   console.log("user", user);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (

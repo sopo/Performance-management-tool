@@ -26,6 +26,7 @@ const ChoosePeersCard: React.FC = () => {
   const user = useAtomValue(UserAtom);
   const userId = user?.user.id || "";
   const { data } = useGetMyPeers({ id: userId });
+
   return (
     <Card className="flex-1">
       <CardHeader>

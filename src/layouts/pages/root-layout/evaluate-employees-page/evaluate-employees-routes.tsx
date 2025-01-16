@@ -1,4 +1,4 @@
-import { Loader } from "@/components/ui/loader";
+import Loader from "@/components/ui/loader";
 import { ROOT_PATHS } from "../root.enums";
 import { Suspense } from "react";
 import { Survey } from "../survey/survey.loader";
@@ -11,7 +11,7 @@ export const EVALUATE_EMPLOYEES_ROUTES = [
       {
         path: "",
         element: (
-          <Suspense fallback={Loader}>
+          <Suspense fallback={<Loader />}>
             <EvaluateEmployees />
           </Suspense>
         ),
@@ -19,7 +19,7 @@ export const EVALUATE_EMPLOYEES_ROUTES = [
       {
         path: `:id`,
         element: (
-          <Suspense fallback={Loader}>
+          <Suspense fallback={<Loader />}>
             <Survey />
           </Suspense>
         ),
