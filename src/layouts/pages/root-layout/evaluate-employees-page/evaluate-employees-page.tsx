@@ -30,7 +30,7 @@ const EvaluateEmployeesPage: React.FC = () => {
     return <EmptyState />;
   }
   return (
-    <>
+    <div className="flex flex-col gap-8">
       <EvaluateEmployeesList peers={data} />
       <Pagination>
         <PaginationContent>
@@ -43,7 +43,7 @@ const EvaluateEmployeesPage: React.FC = () => {
           ))}
         </PaginationContent>
       </Pagination>
-    </>
+    </div>
   );
 };
 export default EvaluateEmployeesPage;
