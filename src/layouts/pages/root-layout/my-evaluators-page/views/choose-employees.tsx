@@ -19,7 +19,10 @@ import {
   PaginationLink,
 } from "@/components/ui/pagination";
 import useGetMyPeers from "@/hooks/use-get-my-peers";
-
+import Text from "@/components/text/text";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
+import SearchBar from "../components/search-bar";
 const ChooseEmployees: React.FC = () => {
   const user = useAtomValue(ProfileAtom);
   const { t } = useTranslation();
@@ -82,6 +85,8 @@ const ChooseEmployees: React.FC = () => {
   };
   return (
     <div className="flex flex-col gap-8">
+      <Text type="title-large">{t("pages.chooseEvaluators.title")}</Text>
+      <SearchBar />
       <div>
         {data?.map((user) => {
           const isMatched = matchedPeers.some(
