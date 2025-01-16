@@ -16,6 +16,7 @@ import { useAtomValue } from "jotai";
 import CardEmptyState from "./card-empty-state";
 import useGetPeersToEvaluate from "@/hooks/use-get-peers-to-evaluate";
 import FilledCardContent from "./filled-card-content";
+import { SkeletonCard } from "@/components/ui/skeleton-card";
 
 const EvaluatePeersCard: React.FC = () => {
   const navigate = useNavigate();
@@ -25,7 +26,11 @@ const EvaluatePeersCard: React.FC = () => {
   };
   const user = useAtomValue(UserAtom);
   const userId = user?.user.id || "";
-  const { data } = useGetPeersToEvaluate({ id: userId });
+  const { data, isLoading } = useGetPeersToEvaluate({ id: userId });
+  
+  if (isLoading) {
+    return <SkeletonCard />;
+  }
   return (
     <Card className="flex-1">
       <CardHeader>
