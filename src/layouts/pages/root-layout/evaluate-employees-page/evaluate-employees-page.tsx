@@ -12,10 +12,12 @@ import useGetPeersToEvaluateCount from "@/hooks/use-get-peers-to-evaluate-count"
 import { PEERS_LIMIT } from "@/api/get/get-peers";
 import { useLocation } from "react-router";
 import useGetPeersToEvaluateWithPagination from "@/hooks/use-get-peers-to-evaluate-with-pagination";
-import Loader from "@/components/ui/loader";
+import { useTranslation } from "react-i18next";
+import { SkeletonList } from "@/components/ui/skeleton-list";
 
 const EvaluateEmployeesPage: React.FC = () => {
   const user = useAtomValue(UserAtom);
+  const {t} = useTranslation()
   const userId = user?.user.id || "";
   const { hash } = useLocation();
   const page = hash !== "" ? parseInt(hash.replace("#", "")) : 0;
@@ -24,11 +26,13 @@ const EvaluateEmployeesPage: React.FC = () => {
     page,
   });
   const { data: count } = useGetPeersToEvaluateCount({ id: userId });
-
-  const pageCount = Math.ceil(count ?? 0 / PEERS_LIMIT);
+  if(count === undefined){
+    return <p>{t("global.noPeersAvailable")}</p>
+  }
+  const pageCount = Math.ceil(count/ PEERS_LIMIT);
   const pages = new Array(pageCount).fill(0);
   if (isLoading) {
-    return <Loader />;
+    return <SkeletonList />;
   }
   if (!data || count === 0) {
     return <EmptyState />;

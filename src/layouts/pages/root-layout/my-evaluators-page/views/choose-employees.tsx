@@ -73,8 +73,10 @@ const ChooseEmployees: React.FC = () => {
       navigate(`/${lang}/${ROOT_PATHS.MY_EVALUATORS}`);
     }
   }, [isSuccess, lang, navigate]);
-
-  const pageCount = Math.ceil(count ?? 0 / PEERS_LIMIT);
+  if(count === undefined){
+    return <p>{t("global.noPeersAvailable")}</p>
+  }
+  const pageCount = Math.ceil(count / PEERS_LIMIT);
   const pages = new Array(pageCount).fill(0);
 
   const handleSelect = (profile: PeerInsert) => {
