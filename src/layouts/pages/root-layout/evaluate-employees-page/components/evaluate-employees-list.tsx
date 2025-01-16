@@ -1,4 +1,3 @@
-import Screen from "@/components/containers/screen";
 import Text from "@/components/text/text";
 import { useTranslation } from "react-i18next";
 import EvaluateEmployeesListItem from "./evaluate-employees-list-item";
@@ -13,14 +12,14 @@ const EvaluateEmployeesList: React.FC<EvaluateEmployeesListProps> = ({
   const { t } = useTranslation();
 
   return (
-    <Screen>
-      <div className="flex flex-col gap-8">
-        <Text type="title-large">{t("pages.evaluateEmployees.title")}</Text>
-        <div className="flex-col gap-8 lg:gap-8">
-          <EvaluateEmployeesListItem peers={peers} />
-        </div>
+    <div className="flex flex-col gap-8">
+      <Text type="title-large">{t("pages.evaluateEmployees.title")}</Text>
+      <div>
+        {peers.map((peer) => (
+          <EvaluateEmployeesListItem peer={peer} key={peer.id} />
+        ))}
       </div>
-    </Screen>
+    </div>
   );
 };
 export default EvaluateEmployeesList;

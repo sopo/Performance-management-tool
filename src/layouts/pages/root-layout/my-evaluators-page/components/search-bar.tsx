@@ -7,7 +7,6 @@ import { useDebounce } from "@/hooks/use-debounce";
 import { useEffect } from "react";
 import qs from "qs";
 
-
 const SearchBar: React.FC = () => {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -39,11 +38,10 @@ const SearchBar: React.FC = () => {
     }
   }, [debouncedSearch, setSearchParams]);
   return (
-
     <div className="relative">
-    <Input {...search} placeholder={t("global.search")} className="pl-8" />
-    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-  </div>
+      <Input {...search} placeholder={t("global.search")} className="pl-8" />
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+    </div>
   );
 };
 export default SearchBar;

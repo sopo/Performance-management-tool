@@ -15,7 +15,6 @@ const MyEvaluatorsList: React.FC<MyEvaluatorsListProps> = ({ users }) => {
   const onClick = () => {
     navigate(ROOT_PATHS.CHOOSE_EMPLOYEES);
   };
-  console.log(users);
   return (
     <div className="flex flex-col gap-8">
       <Text type="title-large">{t("pages.myEvaluators.title")}</Text>

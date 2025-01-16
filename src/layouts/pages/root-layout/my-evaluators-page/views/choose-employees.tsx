@@ -7,7 +7,12 @@ import { Button } from "@/components/ui/button";
 import { ProfileAtom } from "@/store/auth";
 import { useAtomValue } from "jotai";
 import { mapPeerData } from "@/utils/map-users-list";
-import { useLocation, useNavigate, useParams, useSearchParams } from "react-router";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router";
 import { ROOT_PATHS } from "../../root.enums";
 import useGetAvailablePeersProfiles from "@/hooks/use-get-available-peers-profiles";
 import { PEERS_LIMIT } from "@/api/get/get-peers";
@@ -36,13 +41,11 @@ const ChooseEmployees: React.FC = () => {
       ? parsedQueryParams.search
       : "";
 
- 
-console.log(searchQuery)
+  console.log(searchQuery);
   const { data, isLoading, isError } = useGetAvailablePeersProfiles({
     id: userId,
     page,
-   searchQuery
-   
+    searchQuery,
   });
 
   const { data: chosenPeers } = useGetMyPeers({ id: userId });
