@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ProfileAtom } from "@/store/auth";
 import { useAtomValue } from "jotai";
 import { mapPeerData } from "@/utils/map-users-list";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useLocation, useNavigate, useParams, useSearchParams } from "react-router";
 import { ROOT_PATHS } from "../../root.enums";
 import useGetAvailablePeersProfiles from "@/hooks/use-get-available-peers-profiles";
 import { PEERS_LIMIT } from "@/api/get/get-peers";
@@ -19,16 +19,30 @@ import {
   PaginationLink,
 } from "@/components/ui/pagination";
 import useGetMyPeers from "@/hooks/use-get-my-peers";
-
+import Text from "@/components/text/text";
+import SearchBar from "../components/search-bar";
+import qs from "qs";
 const ChooseEmployees: React.FC = () => {
   const user = useAtomValue(ProfileAtom);
   const { t } = useTranslation();
   const userId = user?.user_id || "";
   const { hash } = useLocation();
   const page = hash !== "" ? parseInt(hash.replace("#", "")) : 0;
+  const [searchParams] = useSearchParams();
+
+  const parsedQueryParams = qs.parse(searchParams.toString());
+  const searchQuery =
+    typeof parsedQueryParams.search === "string"
+      ? parsedQueryParams.search
+      : "";
+
+ 
+console.log(searchQuery)
   const { data, isLoading, isError } = useGetAvailablePeersProfiles({
     id: userId,
     page,
+   searchQuery
+   
   });
 
   const { data: chosenPeers } = useGetMyPeers({ id: userId });
@@ -82,6 +96,8 @@ const ChooseEmployees: React.FC = () => {
   };
   return (
     <div className="flex flex-col gap-8">
+      <Text type="title-large">{t("pages.chooseEvaluators.title")}</Text>
+      <SearchBar />
       <div>
         {data?.map((user) => {
           const isMatched = matchedPeers.some(

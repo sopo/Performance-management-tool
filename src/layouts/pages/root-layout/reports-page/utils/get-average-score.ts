@@ -1,5 +1,5 @@
 import { Answer } from "@/types/types";
-import mean from 'lodash/mean';
+import mean from "lodash/mean";
 export const getAverageScore = (answers: Answer[]) => {
   if (!answers || answers === undefined) {
     return;
@@ -9,9 +9,7 @@ export const getAverageScore = (answers: Answer[]) => {
   );
   const scores = validAnswers.map((answer) => answer.score);
 
-
   const average = mean(scores);
 
   return average;
 };
-
