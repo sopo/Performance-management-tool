@@ -49,7 +49,9 @@ const ChooseEmployees: React.FC = () => {
     searchQuery,
   });
 
-  const { data: chosenPeers, isLoading: chosenPeersLoading } = useGetMyPeers({ id: userId });
+  const { data: chosenPeers, isLoading: chosenPeersLoading } = useGetMyPeers({
+    id: userId,
+  });
   const [matchedPeers, setMatchedPeers] = useState<Peer[]>([]);
   const [selectedProfiles, setSelectedProfiles] = useState<PeerInsert[]>([]);
   const { mutate, isSuccess } = usePostProfiles();
@@ -71,7 +73,7 @@ const ChooseEmployees: React.FC = () => {
       navigate(`/${lang}/${ROOT_PATHS.MY_EVALUATORS}`);
     }
   }, [isSuccess, lang, navigate]);
- 
+
   const pageCount = Math.ceil(count ?? 0 / PEERS_LIMIT);
   const pages = new Array(pageCount).fill(0);
 
@@ -92,7 +94,7 @@ const ChooseEmployees: React.FC = () => {
     <div className="flex flex-col gap-8">
       <Text type="title-large">{t("pages.chooseEvaluators.title")}</Text>
       <SearchBar />
-      {chosenPeersLoading || allPeersLoading && <SkeletonList />}
+      {chosenPeersLoading || (allPeersLoading && <SkeletonList />)}
       <div>
         {data?.map((user) => {
           const isMatched = matchedPeers.some(
