@@ -17,7 +17,7 @@ import { SkeletonList } from "@/components/ui/skeleton-list";
 
 const EvaluateEmployeesPage: React.FC = () => {
   const user = useAtomValue(UserAtom);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const userId = user?.user.id || "";
   const { hash } = useLocation();
   const page = hash !== "" ? parseInt(hash.replace("#", "")) : 0;
@@ -26,10 +26,10 @@ const EvaluateEmployeesPage: React.FC = () => {
     page,
   });
   const { data: count } = useGetPeersToEvaluateCount({ id: userId });
-  if(count === undefined){
-    return <p>{t("global.noPeersAvailable")}</p>
+  if (count === undefined) {
+    return <p>{t("global.noPeersAvailable")}</p>;
   }
-  const pageCount = Math.ceil(count/ PEERS_LIMIT);
+  const pageCount = Math.ceil(count / PEERS_LIMIT);
   const pages = new Array(pageCount).fill(0);
   if (isLoading) {
     return <SkeletonList />;
