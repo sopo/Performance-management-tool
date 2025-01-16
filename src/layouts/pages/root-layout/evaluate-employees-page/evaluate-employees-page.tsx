@@ -25,7 +25,7 @@ const EvaluateEmployeesPage: React.FC = () => {
   });
   const { data: count } = useGetPeersToEvaluateCount({ id: userId });
   if (count === undefined) {
-    return <SkeletonList />
+    return <SkeletonList />;
   }
   const pageCount = Math.ceil(count / PEERS_LIMIT);
   const pages = new Array(pageCount).fill(0);
