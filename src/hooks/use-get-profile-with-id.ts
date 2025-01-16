@@ -11,8 +11,8 @@ const useGetProfileWithId = <T = Profile>({
   return useQuery<Profile | null, Error, T>({
     queryKey: [QUERY_KEYS.PROFILES, id],
     queryFn: async () => {
-      if(!id){
-        return null
+      if (!id) {
+        return null;
       }
       const result = await getProfileWithId(id);
       return result.data?.[0] || null;
