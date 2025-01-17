@@ -65,6 +65,12 @@
       "email": "Email",
       "info": "General Information"
     },
+    "editName": {
+      "title": "Edit Name",
+      "userNameKa": "Name Ka",
+      "userNameEn": "Name En",
+      "required": "This field is required"
+    },
     "reports": {
       "title": "Results",
       "description": "View your results",

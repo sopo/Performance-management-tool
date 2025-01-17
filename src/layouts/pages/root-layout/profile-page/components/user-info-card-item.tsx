@@ -1,16 +1,16 @@
-import { Button } from "@/components/ui/button";
-import { Edit2 } from "lucide-react";
 import { Trans } from "react-i18next";
 
 interface UserInfoCardItemProps {
   title: string;
   description: string;
-  noIcon?: boolean;
+  children?: React.ReactNode; 
+
 }
 const UserInfoCardItem: React.FC<UserInfoCardItemProps> = ({
   title,
   description,
-  noIcon,
+  children
+
 }) => {
   return (
     <div className="flex flex-col items-start gap-4  sm:flex-row sm:justify-between sm:items-center border-b border-border py-8 ">
@@ -20,13 +20,7 @@ const UserInfoCardItem: React.FC<UserInfoCardItemProps> = ({
         </p>
         <p className="text-lg text-foreground">{description}</p>
       </div>
-      {!noIcon && (
-        <>
-          <Button variant="outline">
-            <Edit2 className="text-muted-foreground" />
-          </Button>
-        </>
-      )}
+      {children}
     </div>
   );
 };
