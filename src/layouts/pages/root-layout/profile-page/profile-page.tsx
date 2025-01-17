@@ -8,19 +8,17 @@ import UserInfoCard from "./components/user-info-card";
 
 const ProfilePage: React.FC = () => {
   const { t } = useTranslation();
-
   const user = useAtomValue(ProfileAtom);
+
   if (!user) {
     return <Loader />;
   }
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-8 ">
+      <div className="flex flex-col ">
         <UserProfileCard />
         <Text type="title-medium">{t("pages.profile.info")}</Text>
         <UserInfoCard />
       </div>
-    </div>
   );
 };
 export default ProfilePage;

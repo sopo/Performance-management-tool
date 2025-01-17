@@ -8,7 +8,7 @@ const UserProfileCard: React.FC = () => {
   const user = useAtomValue(ProfileAtom);
 
   return (
-    <div className="flex gap-4 items-center border-b border-border pb-8">
+    <div className="flex gap-4 items-center border-b border-border pb-8 mb-8">
       <Avatar className="w-12 h-12 sm:w-20 sm:h-20">
         <AvatarFallback className="text-sm sm:text-xl text-foreground ">
           {lang === "en"

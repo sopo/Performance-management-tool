@@ -6,7 +6,7 @@ const UserInfoCard: React.FC = () => {
   const profile = useAtomValue(ProfileAtom);
   const user = useAtomValue(UserAtom);
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col">
       <UserInfoCardItem
         title="pages.profile.fullName"
         description={`${profile?.display_name_en} / ${profile?.display_name_ka}`}
