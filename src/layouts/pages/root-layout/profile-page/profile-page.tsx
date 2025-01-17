@@ -14,11 +14,11 @@ const ProfilePage: React.FC = () => {
     return <Loader />;
   }
   return (
-      <div className="flex flex-col ">
-        <UserProfileCard />
-        <Text type="title-medium">{t("pages.profile.info")}</Text>
-        <UserInfoCard />
-      </div>
+    <div className="flex flex-col ">
+      <UserProfileCard />
+      <Text type="title-medium">{t("pages.profile.info")}</Text>
+      <UserInfoCard />
+    </div>
   );
 };
 export default ProfilePage;
