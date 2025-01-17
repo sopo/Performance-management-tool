@@ -20,12 +20,12 @@ import ErrorMessage from "@/components/ui/error-message";
 
 const EditUserNameForm: React.FC = () => {
   const user = useAtomValue(UserAtom);
-  const profile = useAtomValue(ProfileAtom)
+  const profile = useAtomValue(ProfileAtom);
   const id = user?.user.id || "";
   const { t } = useTranslation();
   const defaultValues = {
-    userNameEn: profile?.display_name_en || "", 
-    userNameKa: profile?.display_name_ka || "", 
+    userNameEn: profile?.display_name_en || "",
+    userNameKa: profile?.display_name_ka || "",
   };
   const {
     register,
@@ -33,7 +33,7 @@ const EditUserNameForm: React.FC = () => {
     formState: { errors },
   } = useForm<EditNameForm>({
     resolver: zodResolver(EditNameShema),
-    defaultValues
+    defaultValues,
   });
 
   const { mutate: handleNameChange } = useUpdateUserName();
