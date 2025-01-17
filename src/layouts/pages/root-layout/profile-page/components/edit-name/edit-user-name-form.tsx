@@ -15,20 +15,25 @@ import FormContainer from "@/components/containers/form-element-containers/form-
 import { Input } from "@/components/ui/input";
 import { useUpdateUserName } from "@/hooks/use-update-user-name";
 import { useAtomValue } from "jotai";
-import { UserAtom } from "@/store/auth";
+import { ProfileAtom, UserAtom } from "@/store/auth";
 import ErrorMessage from "@/components/ui/error-message";
 
 const EditUserNameForm: React.FC = () => {
   const user = useAtomValue(UserAtom);
+  const profile = useAtomValue(ProfileAtom)
   const id = user?.user.id || "";
   const { t } = useTranslation();
-
+  const defaultValues = {
+    userNameEn: profile?.display_name_en || "", 
+    userNameKa: profile?.display_name_ka || "", 
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<EditNameForm>({
     resolver: zodResolver(EditNameShema),
+    defaultValues
   });
 
   const { mutate: handleNameChange } = useUpdateUserName();
