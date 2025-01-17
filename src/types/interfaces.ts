@@ -1,4 +1,3 @@
-
 export interface AuthProps {
   email: string;
   password: string;
@@ -14,4 +13,3 @@ export interface SurveyVoteButtonProps {
   onClick: (label: number) => void;
   selectedLabel: number | null;
 }
-
