@@ -4,6 +4,7 @@ import { useAtomValue } from "jotai";
 import { useTranslation } from "react-i18next";
 import UserProfileCard from "./components/user-profile-card";
 import Loader from "@/components/ui/loader";
+import UserInfoCard from "./components/user-info-card";
 
 const ProfilePage: React.FC = () => {
   const { t } = useTranslation();
@@ -14,9 +15,12 @@ const ProfilePage: React.FC = () => {
   }
   return (
     <div className="flex flex-col gap-8">
-      <Text type="title-large">{t("pages.profile.title")}</Text>
+      
       <div className="flex flex-col gap-8 ">
+        
         <UserProfileCard />
+        <Text type="title-medium">{t("pages.profile.info")}</Text>
+        <UserInfoCard />
       </div>
     </div>
   );

@@ -59,7 +59,11 @@
       }
     },
     "profile": {
-      "title": "Profile"
+      "title": "Profile",
+      "fullName": "Full Name",
+      "position": "Position",
+      "email": "Email",
+      "info": "General Information"
     },
     "reports": {
       "title": "Results",
