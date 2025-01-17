@@ -23,15 +23,18 @@ const EditUserNameForm: React.FC = () => {
   const id = user?.user.id || "";
   const { t } = useTranslation();
 
-
-  const { register, handleSubmit, formState: { errors }, } = useForm<EditNameForm>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<EditNameForm>({
     resolver: zodResolver(EditNameShema),
   });
 
   const { mutate: handleNameChange } = useUpdateUserName();
 
-  const userNameEn = register("userNameEn", {required: true});
-  const userNameKa = register("userNameKa", {required: true});
+  const userNameEn = register("userNameEn", { required: true });
+  const userNameKa = register("userNameKa", { required: true });
 
   const onSubmit = (data: EditNameForm) => {
     const payload = {
@@ -44,13 +47,11 @@ const EditUserNameForm: React.FC = () => {
 
   return (
     <Dialog>
-
       <DialogTrigger asChild>
         <Button variant="outline">
           <Edit2 className="text-muted-foreground" />
         </Button>
       </DialogTrigger>
-
 
       <DialogContent>
         <DialogHeader>
@@ -59,7 +60,6 @@ const EditUserNameForm: React.FC = () => {
 
         <FormContainer onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-8">
-
             <div className="flex flex-col gap-2">
               <Input
                 {...userNameEn}
@@ -67,7 +67,11 @@ const EditUserNameForm: React.FC = () => {
                 id="userNameEn"
                 placeholder={t("pages.editName.userNameEn")}
               />
-              {errors.userNameEn &&  <ErrorMessage>{t(`pages.editName.${errors.userNameEn.message}`)}</ErrorMessage>}
+              {errors.userNameEn && (
+                <ErrorMessage>
+                  {t(`pages.editName.${errors.userNameEn.message}`)}
+                </ErrorMessage>
+              )}
             </div>
 
             <div className="flex flex-col gap-2">
@@ -77,7 +81,11 @@ const EditUserNameForm: React.FC = () => {
                 id="userNameKa"
                 placeholder={t("pages.editName.userNameKa")}
               />
-              {errors.userNameKa &&  <ErrorMessage>{t(`pages.editName.${errors.userNameKa.message}`)}</ErrorMessage>}
+              {errors.userNameKa && (
+                <ErrorMessage>
+                  {t(`pages.editName.${errors.userNameKa.message}`)}
+                </ErrorMessage>
+              )}
             </div>
 
             <Button
