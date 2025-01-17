@@ -15,9 +15,7 @@ const ProfilePage: React.FC = () => {
   }
   return (
     <div className="flex flex-col gap-8">
-      
       <div className="flex flex-col gap-8 ">
-        
         <UserProfileCard />
         <Text type="title-medium">{t("pages.profile.info")}</Text>
         <UserInfoCard />
