@@ -17,12 +17,15 @@ import { useUpdateUserName } from "@/hooks/use-update-user-name";
 import { useAtomValue } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
 import ErrorMessage from "@/components/ui/error-message";
+import {useState } from "react";
+
 
 const EditUserNameForm: React.FC = () => {
   const user = useAtomValue(UserAtom);
   const profile = useAtomValue(ProfileAtom);
   const id = user?.user.id || "";
   const { t } = useTranslation();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const defaultValues = {
     userNameEn: profile?.display_name_en || "",
     userNameKa: profile?.display_name_ka || "",
@@ -48,10 +51,11 @@ const EditUserNameForm: React.FC = () => {
     };
 
     handleNameChange({ id, payload });
+    setIsDialogOpen(false);
   };
 
   return (
-    <Dialog>
+    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
         <Button variant="outline">
           <Edit2 className="text-muted-foreground" />
@@ -62,7 +66,6 @@ const EditUserNameForm: React.FC = () => {
         <DialogHeader>
           <DialogTitle>{t("pages.editName.title")}</DialogTitle>
         </DialogHeader>
-
         <FormContainer onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-2">
