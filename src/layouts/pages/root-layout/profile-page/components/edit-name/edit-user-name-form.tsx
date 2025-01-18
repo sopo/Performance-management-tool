@@ -17,8 +17,7 @@ import { useUpdateUserName } from "@/hooks/use-update-user-name";
 import { useAtomValue } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
 import ErrorMessage from "@/components/ui/error-message";
-import {useState } from "react";
-
+import { useState } from "react";
 
 const EditUserNameForm: React.FC = () => {
   const user = useAtomValue(UserAtom);
