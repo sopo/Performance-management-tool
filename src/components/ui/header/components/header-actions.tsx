@@ -13,14 +13,14 @@ import {
 import useLogOut from "@/hooks/use-log-out";
 import { AUTH_PATHS } from "@/layouts/pages/autorization-layout/authorization.enums";
 import LangToggle from "./lang-toggle";
-import { UserAtom } from "@/store/auth";
+import { ProfileAtom} from "@/store/auth";
 import { useAtomValue } from "jotai";
 import { ModeToggle } from "@/components/mode-toggle";
 
 const HeaderActions: React.FC = () => {
   const { t } = useTranslation();
   const { lang } = useParams();
-  const user = useAtomValue(UserAtom);
+  const profile = useAtomValue(ProfileAtom)
   const navigate = useNavigate();
   const { mutate: logOut } = useLogOut(() => {
     navigate(`/${lang}/${AUTH_PATHS.SIGN_IN}`);
@@ -35,7 +35,7 @@ const HeaderActions: React.FC = () => {
             <AvatarImage src="" />
             <AvatarFallback>
               <p className="text-small text-foreground">
-                {user?.user.email?.[0]}
+                {lang === "en" ? profile?.display_name_en?.[0] : profile?.display_name_ka?.[0]}
               </p>
             </AvatarFallback>
           </Avatar>
