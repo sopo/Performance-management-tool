@@ -17,7 +17,7 @@ import { useUpdateUserName } from "@/hooks/use-update-user-name";
 import { useAtom, useAtomValue } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
 import ErrorMessage from "@/components/ui/error-message";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const EditUserNameForm: React.FC = () => {
   const user = useAtomValue(UserAtom);
@@ -33,12 +33,13 @@ const EditUserNameForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm<EditNameForm>({
     resolver: zodResolver(EditNameShema),
     defaultValues,
   });
 
-  const { mutate: handleNameChange } = useUpdateUserName();
+  const { mutate: handleNameChange, isSuccess } = useUpdateUserName();
 
   const userNameEn = register("userNameEn", { required: true });
   const userNameKa = register("userNameKa", { required: true });
@@ -50,15 +51,20 @@ const EditUserNameForm: React.FC = () => {
     };
 
     handleNameChange({ id, payload });
-    setProfile((prevProfile) => ({
-      ...prevProfile,
-      display_name_en: data.userNameEn,
-      display_name_ka: data.userNameKa,
-    }));
-
-    setIsDialogOpen(false);
   };
+  useEffect(() => {
+    if (isSuccess) {
+      const formValues = getValues();
 
+      setProfile((prevProfile) => ({
+        ...prevProfile,
+        display_name_en: formValues.userNameEn,
+        display_name_ka: formValues.userNameKa,
+      }));
+
+      setIsDialogOpen(false);
+    }
+  }, [isSuccess, getValues, setProfile]);
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger asChild>
