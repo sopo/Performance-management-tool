@@ -14,14 +14,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import FormContainer from "@/components/containers/form-element-containers/form-container";
 import { Input } from "@/components/ui/input";
 import { useUpdateUserName } from "@/hooks/use-update-user-name";
-import { useAtomValue } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { ProfileAtom, UserAtom } from "@/store/auth";
 import ErrorMessage from "@/components/ui/error-message";
 import { useState } from "react";
 
 const EditUserNameForm: React.FC = () => {
   const user = useAtomValue(UserAtom);
-  const profile = useAtomValue(ProfileAtom);
+  const [profile, setProfile] = useAtom(ProfileAtom);
   const id = user?.user.id || "";
   const { t } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -50,6 +50,12 @@ const EditUserNameForm: React.FC = () => {
     };
 
     handleNameChange({ id, payload });
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      display_name_en: data.userNameEn,
+      display_name_ka: data.userNameKa,
+    }));
+
     setIsDialogOpen(false);
   };
 
