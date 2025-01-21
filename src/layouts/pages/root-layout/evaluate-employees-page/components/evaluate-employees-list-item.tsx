@@ -9,7 +9,7 @@ interface EvaluateEmployeesListItemProps {
 const EvaluateEmployeesListItem: React.FC<EvaluateEmployeesListItemProps> = ({
   peer,
 }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div
       key={peer.id}
