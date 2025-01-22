@@ -76,9 +76,18 @@
       "description": "View your results",
       "reportTitle": "Your report is based on",
       "evaluators": "evaluators",
+      "scores": "Score",
       "score": "Your score:",
+      "maxScore": "Max Score",
+      "benchmarkScore": "Benchmark",
+      "above": "above",
+      "below": "below",
       "scoreByQuestions": "Your score based on questions",
       "totalResult": "Total result",
+      "yourScore": "Your score",
+      "benchmark": "benchmark",
+      "shownSum": "Showing sum of peers evaluation",
+      "scoreForToday": "Results for today",
       "filledState": {
         "title": "Your results are ready",
         "note": "Results by all peers will be available after deadline"
