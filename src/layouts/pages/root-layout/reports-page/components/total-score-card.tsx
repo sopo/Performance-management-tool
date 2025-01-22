@@ -24,13 +24,12 @@ interface TotalScoreCardProps {
 }
 const TotalScoreCard: React.FC<TotalScoreCardProps> = ({ answers }) => {
   const average = getAverageScore(answers) || 0;
-  const remaining = 10 -average
+  const remaining = 10 - average;
 
   const chartData = [
-    { score: average, fill: "hsl(var(--chart-1))" }, 
-    { score: remaining, fill: "hsl(var(--chart-2))" }, 
+    { score: average, fill: "hsl(var(--chart-1))" },
+    { score: remaining, fill: "hsl(var(--chart-2))" },
   ];
-
 
   const chartConfig = {
     score: {
@@ -42,72 +41,76 @@ const TotalScoreCard: React.FC<TotalScoreCardProps> = ({ answers }) => {
     },
   } satisfies ChartConfig;
   return (
-      <Card className="flex flex-col">
-        <CardHeader className="items-center pb-0">
-          <CardTitle> <p className="text-sm font-semibold uppercase text-muted-foreground">
-              {t("pages.reports.totalResult")}
-            </p></CardTitle>
-          <CardDescription>{t("pages.reports.scoreForToday")}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex-1 pb-0">
-          <ChartContainer
-            config={chartConfig}
-            className="mx-auto aspect-square max-h-[250px]"
-          >
-            <PieChart>
-              <ChartTooltip
-                cursor={false}
-                content={<ChartTooltipContent hideLabel />}
-              />
-              <Pie
-                data={chartData}
-                dataKey="score"
-                nameKey="label"
-                innerRadius={60}
-                strokeWidth={5}
-              >
-                <Label
-                  content={({ viewBox }) => {
-                    if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                      return (
-                        <text
+    <Card className="flex flex-col">
+      <CardHeader className="items-center pb-0">
+        <CardTitle>
+          {" "}
+          <p className="text-sm font-semibold uppercase text-muted-foreground">
+            {t("pages.reports.totalResult")}
+          </p>
+        </CardTitle>
+        <CardDescription>{t("pages.reports.scoreForToday")}</CardDescription>
+      </CardHeader>
+      <CardContent className="flex-1 pb-0">
+        <ChartContainer
+          config={chartConfig}
+          className="mx-auto aspect-square max-h-[250px]"
+        >
+          <PieChart>
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            />
+            <Pie
+              data={chartData}
+              dataKey="score"
+              nameKey="label"
+              innerRadius={60}
+              strokeWidth={5}
+            >
+              <Label
+                content={({ viewBox }) => {
+                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                    return (
+                      <text
+                        x={viewBox.cx}
+                        y={viewBox.cy}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                      >
+                        <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          textAnchor="middle"
-                          dominantBaseline="middle"
+                          className="fill-foreground text-3xl font-bold"
                         >
-                          <tspan
-                            x={viewBox.cx}
-                            y={viewBox.cy}
-                            className="fill-foreground text-3xl font-bold"
-                          >
-                            {average}
-                          </tspan>
-                          <tspan
-                            x={viewBox.cx}
-                            y={(viewBox.cy || 0) + 24}
-                            className="fill-muted-foreground"
-                          >
-                            {t("pages.reports.yourScore")}
-                          </tspan>
-                        </text>
-                      );
-                    }
-                  }}
-                />
-              </Pie>
-            </PieChart>
-          </ChartContainer>
-        </CardContent>
-        <CardFooter className="flex-col gap-2 text-sm">
-          <div className="flex items-center gap-2 font-medium leading-none">
-            Trending up by 5.2% {t("pages.reports.benchmark")} <TrendingUp className="h-4 w-4" />
-          </div>
-          <div className="leading-none text-muted-foreground">
-            {t("pages.reports.shownSum")}
-          </div>
-        </CardFooter>
-      </Card>
+                          {average}
+                        </tspan>
+                        <tspan
+                          x={viewBox.cx}
+                          y={(viewBox.cy || 0) + 24}
+                          className="fill-muted-foreground"
+                        >
+                          {t("pages.reports.yourScore")}
+                        </tspan>
+                      </text>
+                    );
+                  }
+                }}
+              />
+            </Pie>
+          </PieChart>
+        </ChartContainer>
+      </CardContent>
+      <CardFooter className="flex-col gap-2 text-sm">
+        <div className="flex items-center gap-2 font-medium leading-none">
+          Trending up by 5.2% {t("pages.reports.benchmark")}{" "}
+          <TrendingUp className="h-4 w-4" />
+        </div>
+        <div className="leading-none text-muted-foreground">
+          {t("pages.reports.shownSum")}
+        </div>
+      </CardFooter>
+    </Card>
   );
 };
 export default TotalScoreCard;
