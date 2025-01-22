@@ -3,7 +3,6 @@ import { Answer, Questions } from "@/types/types";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router";
 import { QuestionsBarChart } from "./questions-bar-chart";
-
 interface ResultsByQuestionsCardProps {
   questions: Questions[];
   answers: Answer[];
@@ -14,6 +13,7 @@ const ResultsByQuestionsCard: React.FC<ResultsByQuestionsCardProps> = ({
 }) => {
   const { lang } = useParams();
   const { t } = useTranslation();
+
 
   return (
     <>
@@ -36,7 +36,7 @@ const ResultsByQuestionsCard: React.FC<ResultsByQuestionsCardProps> = ({
                   (acc, answer) => acc + (answer.score || 0),
                   0,
                 ) / filteredAnswers.length
-              : null;
+              : 0;
 
             return (
               <div
