@@ -41,7 +41,7 @@ const ResultsByQuestionsCard: React.FC<ResultsByQuestionsCardProps> = ({
             return (
               <div
                 key={question.id}
-                className="mb-6 flex flex-col items-center gap-2 border-b"
+                className="mb-6 flex flex-col items-center gap-2 border-b border-border"
               >
                 <p className="text-3xl font-medium text-foreground mb-1 text-center">
                   {lang === "en" ? question.title_en : question.title_ka}
