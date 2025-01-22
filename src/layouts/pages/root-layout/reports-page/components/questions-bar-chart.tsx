@@ -48,11 +48,11 @@ export function QuestionsBarChart({ score }: QuestionsBarChartProps) {
             data={chartData}
             layout="vertical"
             margin={{
-                top: 0,
-                right: 0,
-                left: 0,
-                bottom: 0,
-              }}
+              top: 0,
+              right: 0,
+              left: 0,
+              bottom: 0,
+            }}
           >
             <YAxis
               dataKey="score"
@@ -68,9 +68,14 @@ export function QuestionsBarChart({ score }: QuestionsBarChartProps) {
             <XAxis dataKey="sum" type="number" hide />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent formatter={(value) => `${value}`} hideLabel />}
+              content={
+                <ChartTooltipContent
+                  formatter={(value) => `${value}`}
+                  hideLabel
+                />
+              }
             />
-            <Bar dataKey="sum" layout="vertical" radius={5} barSize={40}  />
+            <Bar dataKey="sum" layout="vertical" radius={5} barSize={40} />
           </BarChart>
         </ChartContainer>
       </CardContent>
