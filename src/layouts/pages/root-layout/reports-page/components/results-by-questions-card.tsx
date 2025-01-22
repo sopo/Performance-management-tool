@@ -14,7 +14,6 @@ const ResultsByQuestionsCard: React.FC<ResultsByQuestionsCardProps> = ({
   const { lang } = useParams();
   const { t } = useTranslation();
 
-
   return (
     <>
       <Card>
