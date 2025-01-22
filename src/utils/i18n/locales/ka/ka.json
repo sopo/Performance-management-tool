@@ -81,9 +81,11 @@
       "maxScore": "მაქსიმალური ქულა",
       "benchmarkScore": "ბენჩმარკი",
       "totalResult": "ჯამური შედეგი",
+      "above": "-ით უსწრებ",
+      "below": "-ით ჩამორჩები",
       "scoreByQuestions": "შედეგები კითხვების მიხედვით",
       "yourScore": "შენი შედეგი",
-      "benchmark": "ბენჩმარკთან შედარებით",
+      "benchmark": "ბენჩმარკს",
       "shownSum": "ნაჩვენებია კოლეგების ჯამური შეფასება",
       "scoreForToday": "შედეგები დღევანდელი მონაცემებით",
       "filledState": {

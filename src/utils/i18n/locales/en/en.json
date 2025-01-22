@@ -80,10 +80,12 @@
       "score": "Your score:",
       "maxScore": "Max Score",
       "benchmarkScore": "Benchmark",
+      "above": "above",
+      "below": "below",
       "scoreByQuestions": "Your score based on questions",
       "totalResult": "Total result",
       "yourScore": "Your score",
-      "benchmark": "to benchmark",
+      "benchmark": "benchmark",
       "shownSum": "Showing sum of peers evaluation",
       "scoreForToday": "Results for today",
       "filledState": {
