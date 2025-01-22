@@ -2,7 +2,7 @@
 
 import { Bar, BarChart, XAxis, YAxis } from "recharts";
 
-import { CardContent } from "@/components/ui/card";
+import { CardContent, CardFooter } from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -10,6 +10,7 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { t } from "i18next";
+import { TrendingUp } from "lucide-react";
 
 const chartConfig = {
   score: {
@@ -39,9 +40,10 @@ export function QuestionsBarChart({ score }: QuestionsBarChartProps) {
     { score: "yourScore", sum: score, fill: "var(--color-yourScore)" },
     { score: "benchmark", sum: 7, fill: "var(--color-benchmark)" },
   ];
+  const percentage = Math.round(100 - (7 / score) * 100);
   return (
-    <>
-      <CardContent className="flex justify-center items-center w-full my-6">
+    <div className="flex flex-col items-center my-6">
+      <CardContent className="flex justify-center items-center w-full">
         <ChartContainer config={chartConfig} className="w-[600px] h-[200px]">
           <BarChart
             accessibilityLayer
@@ -79,6 +81,14 @@ export function QuestionsBarChart({ score }: QuestionsBarChartProps) {
           </BarChart>
         </ChartContainer>
       </CardContent>
-    </>
+      <CardFooter>
+        <div className="flex items-center gap-2 font-medium leading-none text-sm text-foreground">
+          {percentage}%{" "}
+          {percentage > 0 ? t("pages.reports.above") : t("pages.reports.below")}{" "}
+          {t("pages.reports.benchmark")}
+          <TrendingUp className="h-4 w-4" />
+        </div>
+      </CardFooter>
+    </div>
   );
 }
