@@ -39,14 +39,17 @@ const ResultsByQuestionsCard: React.FC<ResultsByQuestionsCardProps> = ({
               : null;
 
             return (
-              <div key={question.id} className="mb-6 flex flex-col items-center gap-2 border-b">
+              <div
+                key={question.id}
+                className="mb-6 flex flex-col items-center gap-2 border-b"
+              >
                 <p className="text-3xl font-medium text-foreground mb-1">
                   {lang === "en" ? question.title_en : question.title_ka}
                 </p>
                 <p className="font-medium text-muted-foreground">
                   {`${t("pages.reports.score")} ${averageScore && averageScore.toFixed(2)}/10`}
                 </p>
-                <QuestionsBarChart score={averageScore ? averageScore : 0}/>
+                <QuestionsBarChart score={averageScore ? averageScore : 0} />
               </div>
             );
           })}
