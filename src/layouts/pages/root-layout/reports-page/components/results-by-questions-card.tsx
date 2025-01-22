@@ -2,6 +2,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Answer, Questions } from "@/types/types";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router";
+import { QuestionsBarChart } from "./questions-bar-chart";
 
 interface ResultsByQuestionsCardProps {
   questions: Questions[];
@@ -17,7 +18,7 @@ const ResultsByQuestionsCard: React.FC<ResultsByQuestionsCardProps> = ({
   return (
     <>
       <Card>
-        <CardHeader>
+        <CardHeader className="items-center">
           <CardTitle>
             <p className="text-sm font-semibold uppercase text-muted-foreground">
               {t("pages.reports.scoreByQuestions")}
@@ -38,13 +39,14 @@ const ResultsByQuestionsCard: React.FC<ResultsByQuestionsCardProps> = ({
               : null;
 
             return (
-              <div key={question.id} className="mb-6">
-                <p className="text-xl font-medium text-foreground mb-1">
+              <div key={question.id} className="mb-6 flex flex-col items-center gap-2 border-b">
+                <p className="text-3xl font-medium text-foreground mb-1">
                   {lang === "en" ? question.title_en : question.title_ka}
                 </p>
-                <p>
+                <p className="font-medium text-muted-foreground">
                   {`${t("pages.reports.score")} ${averageScore && averageScore.toFixed(2)}/10`}
                 </p>
+                <QuestionsBarChart score={averageScore ? averageScore : 0}/>
               </div>
             );
           })}

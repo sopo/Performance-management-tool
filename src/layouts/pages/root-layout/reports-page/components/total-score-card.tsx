@@ -37,7 +37,6 @@ const TotalScoreCard: React.FC<TotalScoreCardProps> = ({ answers }) => {
     },
     remaining: {
       label: "Remaining",
-      color: "hsl(var(--chart-2))",
     },
   } satisfies ChartConfig;
   return (
