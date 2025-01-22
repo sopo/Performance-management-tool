@@ -25,12 +25,13 @@ interface TotalScoreCardProps {
 const TotalScoreCard: React.FC<TotalScoreCardProps> = ({ answers }) => {
   const average = getAverageScore(answers) || 0;
   const remaining = 10 - average;
+  const benchmark = 7;
+  const percentage = Math.round(100 - (benchmark / average) * 100);
 
   const chartData = [
     { score: average, fill: "hsl(var(--chart-1))" },
     { score: remaining, fill: "hsl(var(--chart-2))" },
   ];
-
   const chartConfig = {
     score: {
       label: "Score",
@@ -102,7 +103,7 @@ const TotalScoreCard: React.FC<TotalScoreCardProps> = ({ answers }) => {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          Trending up by 5.2% {t("pages.reports.benchmark")}{" "}
+          {percentage}% {t("pages.reports.benchmark")}{" "}
           <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">

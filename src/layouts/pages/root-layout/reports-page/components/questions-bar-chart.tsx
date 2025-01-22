@@ -42,14 +42,17 @@ export function QuestionsBarChart({ score }: QuestionsBarChartProps) {
   return (
     <>
       <CardContent className="flex justify-center items-center w-full my-6">
-        <ChartContainer config={chartConfig} className="w-full max-w-96">
+        <ChartContainer config={chartConfig} className="w-[600px] h-[200px]">
           <BarChart
             accessibilityLayer
             data={chartData}
             layout="vertical"
             margin={{
-              left: 0,
-            }}
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0,
+              }}
           >
             <YAxis
               dataKey="score"
@@ -60,13 +63,14 @@ export function QuestionsBarChart({ score }: QuestionsBarChartProps) {
               tickFormatter={(value) =>
                 t(chartConfig[value as keyof typeof chartConfig]?.label)
               }
+              width={200}
             />
             <XAxis dataKey="sum" type="number" hide />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={<ChartTooltipContent formatter={(value) => `${value}`} hideLabel />}
             />
-            <Bar dataKey="sum" layout="vertical" radius={5} barSize={40} />
+            <Bar dataKey="sum" layout="vertical" radius={5} barSize={40}  />
           </BarChart>
         </ChartContainer>
       </CardContent>
