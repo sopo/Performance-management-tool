@@ -40,7 +40,12 @@
     },
     "myEvaluators": {
       "title": "My Evaluators",
-      "addMorePeers": "Add More Peers"
+      "addMorePeers": "Add More Peers",
+      "deleteEvaluator": {
+        "title": "Are you sure you want to delete this user?",
+        "description": "You can add this user later",
+        "cta": "Delete"
+      }
     },
     "home": {
       "title": "Performance Management System Dashboard"
