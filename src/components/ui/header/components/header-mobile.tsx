@@ -16,10 +16,9 @@ const HeaderMobile: React.FC = () => {
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `text-small border-b border-border py-4 ${isActive ? " text-primary" : "text-secondary-foreground "} `;
-  
+
   return (
     <div className="flex justify-between h-[80px] items-center">
-
       <Link to="/" className="self-center">
         <img src={Logo} className="w-8" alt="" />
       </Link>
