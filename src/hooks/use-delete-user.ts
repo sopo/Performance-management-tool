@@ -9,8 +9,5 @@ export const useDeleteUser = () => {
     onError: (error) => {
       console.error("Error deleting user:", error.message);
     },
-    onSuccess: () => {
-      console.log("User successfully deleted");
-    },
   });
 };

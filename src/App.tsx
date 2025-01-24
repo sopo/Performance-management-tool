@@ -34,10 +34,8 @@ function App() {
   useEffect(() => {
     if (data) {
       setProfile(data);
-      console.log("profdata", data);
     }
   }, [data, setProfile]);
-  console.log("user", user);
 
   if (loading) {
     return <Loader />;
