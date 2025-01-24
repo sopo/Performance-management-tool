@@ -1,9 +1,8 @@
 # Performance management tool
 
 ## Requirements
-* Authorization / Registration ✅
 
-
+- Authorization / Registration ✅
 
 ## Expanding the ESLint configuration
 
