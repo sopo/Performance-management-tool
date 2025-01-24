@@ -11,8 +11,9 @@
 - Search and Share Search Results ✅ - Users can search and share results easily.
 - Easy to Use / Good UI/UX ✅ - Designed with an intuitive user interface and experience in mind.
 - Responsive ✅ - Fully responsive and works on all screen sizes.
-- 
-## Technical Requirements 
+-
+
+## Technical Requirements
 
 - TypeScript ✅
 - React ✅
@@ -27,6 +28,7 @@
 - Tailwind CSS ✅
 
 ## Additional Libraries/Technologies Used
+
 - Shadcn ✅
 - Lodash ✅
 - Supabase ✅
@@ -37,4 +39,3 @@
 ## Hosting
 
 - The application is hosted and fully operational on Vercel. ✅
-
