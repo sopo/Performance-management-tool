@@ -1,4 +1,4 @@
-# Performance management tool
+# Performance Management Tool
 
 ## Requirements
 
