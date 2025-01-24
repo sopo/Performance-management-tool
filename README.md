@@ -33,7 +33,6 @@
 - Supabase ✅
 - Jotai ✅
 - qs ✅
-- Day.js ✅
 
 ## Hosting
 

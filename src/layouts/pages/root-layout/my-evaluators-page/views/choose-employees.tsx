@@ -42,7 +42,6 @@ const ChooseEmployees: React.FC = () => {
       ? parsedQueryParams.search
       : "";
 
-  console.log(searchQuery);
   const { data, isLoading: allPeersLoading } = useGetAvailablePeersProfiles({
     id: userId,
     page,
