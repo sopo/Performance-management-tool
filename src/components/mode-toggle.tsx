@@ -11,7 +11,7 @@ import { useTheme } from "@/components/theme-provider";
 import { useTranslation } from "react-i18next";
 
 export function ModeToggle() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const { setTheme } = useTheme();
 
   return (
@@ -28,10 +28,10 @@ export function ModeToggle() {
           {t("theme.light")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-        {t("theme.dark")}
+          {t("theme.dark")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-        {t("theme.system")}
+          {t("theme.system")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
