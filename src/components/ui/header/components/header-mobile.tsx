@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 import { ROOT_PATHS } from "@/layouts/pages/root-layout/root.enums";
 import { useState } from "react";
 const HeaderMobile: React.FC = () => {
-
   const { t } = useTranslation();
   const { lang } = useParams();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
