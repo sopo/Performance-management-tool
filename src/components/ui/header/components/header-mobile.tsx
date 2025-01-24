@@ -16,15 +16,19 @@ const HeaderMobile: React.FC = () => {
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `text-small border-b border-border py-4 ${isActive ? " text-primary" : "text-secondary-foreground "} `;
+  
   return (
     <div className="flex justify-between h-[80px] items-center">
+
       <Link to="/" className="self-center">
         <img src={Logo} className="w-8" alt="" />
       </Link>
+
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetTrigger onClick={() => setIsSheetOpen(true)}>
           <Menu />
         </SheetTrigger>
+
         <SheetContent>
           <div className="flex flex-col">
             <NavLink
@@ -42,6 +46,7 @@ const HeaderMobile: React.FC = () => {
             >
               {t("global.dashboard")}
             </NavLink>
+
             <NavLink
               className={navLinkClass}
               to={`/${lang}/${ROOT_PATHS.MY_EVALUATORS}`}
@@ -49,6 +54,7 @@ const HeaderMobile: React.FC = () => {
             >
               {t("global.myEvaluators")}
             </NavLink>
+
             <NavLink
               className={navLinkClass}
               to={`/${lang}/${ROOT_PATHS.EVALUATE_EMPLOYEES}`}
@@ -56,6 +62,7 @@ const HeaderMobile: React.FC = () => {
             >
               {t("global.evaluateEmployees")}
             </NavLink>
+
             <NavLink
               className={navLinkClass}
               to={`/${lang}/${ROOT_PATHS.REPORTS}`}
