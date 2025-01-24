@@ -1,6 +1,8 @@
 import { ROOT_PATHS } from "@/layouts/pages/root-layout/root.enums";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
+import LangToggle from "../header/components/lang-toggle";
+import { ModeToggle } from "@/components/mode-toggle";
 
 const FooterCols: React.FC = () => {
   const { t } = useTranslation();
@@ -35,7 +37,7 @@ const FooterCols: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <p className="text-small font-medium text-foreground">
+      <p className="text-small font-medium text-foreground">
           {t("help.help")}
         </p>
         <Link className={LinkClass} to="">
@@ -44,6 +46,16 @@ const FooterCols: React.FC = () => {
         <Link className={LinkClass} to="">
           {t("help.guideline")}
         </Link>
+      </div>
+
+      <div className="flex flex-col gap-4">
+      <p className="text-small font-medium text-foreground">
+          {t("global.settings")}
+        </p>
+        <div className="flex flex-row items-start gap-4">
+        <LangToggle />
+        <ModeToggle />
+        </div>
       </div>
     </div>
   );

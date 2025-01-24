@@ -11,7 +11,8 @@
     "evaluation": "Evaluation",
     "copyright": "All Rights Reserved",
     "search": "Search...",
-    "noPeersAvailable": "Peers are not available"
+    "noPeersAvailable": "Peers are not available",
+    "settings": "Settings"
   },
   "message": {
     "noPeers": "You haven't chosen peers yet",
