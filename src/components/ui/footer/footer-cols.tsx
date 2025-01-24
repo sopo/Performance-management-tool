@@ -37,7 +37,7 @@ const FooterCols: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-      <p className="text-small font-medium text-foreground">
+        <p className="text-small font-medium text-foreground">
           {t("help.help")}
         </p>
         <Link className={LinkClass} to="">
@@ -49,12 +49,12 @@ const FooterCols: React.FC = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-      <p className="text-small font-medium text-foreground">
+        <p className="text-small font-medium text-foreground">
           {t("global.settings")}
         </p>
         <div className="flex flex-row items-start gap-4">
-        <LangToggle />
-        <ModeToggle />
+          <LangToggle />
+          <ModeToggle />
         </div>
       </div>
     </div>
