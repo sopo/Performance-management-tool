@@ -18,11 +18,11 @@ import useGetSelectedPeersStatus from "@/hooks/use-get-selected-peer-status";
 const labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const SurveyPage: React.FC = () => {
   const { t } = useTranslation();
-  const { id } = useParams<{ id: string }>();
+  const { id: userId } = useParams<{ id: string }>();
   const { data } = useGetQuestions();
   const total = data?.length || 0;
   const user = useAtomValue(UserAtom);
-  const evaluatorId = user?.user.id || "";
+  const peerId = user?.user.id || "";
   const [surveyCompleted, setSurveyCompleted] = useState(false);
   const [selectedAnswers, setSelectedAnswers] = useState<
     Record<number, number>
@@ -31,15 +31,19 @@ const SurveyPage: React.FC = () => {
   const { mutate } = usePostAnswers({
     onSuccess: () => {
       setSurveyCompleted(true);
-      if (id) {
-        updateStatus({ userId: id, peerId: evaluatorId, isEvaluated: true });
+      if (peerId) {
+        updateStatus({
+          userId: userId as string,
+          peerId: peerId,
+          isEvaluated: true,
+        });
       }
     },
   });
   const { mutate: updateStatus } = useUpdateIsEvaluated();
 
-  const { data: profile } = useGetProfileWithId({
-    id: id || "",
+  const { data: userProfile } = useGetProfileWithId({
+    id: userId || "",
   });
 
   const [formError, setFormError] = useState(false);
@@ -52,8 +56,8 @@ const SurveyPage: React.FC = () => {
 
   const answeredAll = Object.keys(selectedAnswers).length === data?.length;
   const { data: isAlreadyEvaluated } = useGetSelectedPeersStatus({
-    userId: user?.user.id || "",
-    peerId: profile?.user_id || "",
+    userId: userId || "",
+    peerId: peerId || "",
   });
 
   const onSubmit = () => {
@@ -62,8 +66,8 @@ const SurveyPage: React.FC = () => {
       for (const key in selectedAnswers) {
         const value = selectedAnswers[key];
         payload.push({
-          user_id: user?.user.id as string,
-          peer_id: profile?.user_id as string,
+          user_id: userId as string,
+          peer_id: peerId as string,
           question_id: parseInt(key),
           score: value,
           is_evaluated: true,
@@ -82,14 +86,14 @@ const SurveyPage: React.FC = () => {
         <Success />
       ) : (
         <>
-          <SurveyHead user={profile} total={total} />
+          <SurveyHead user={userProfile} total={total} />
           <div className="mb-6">
             {data?.map((question, index) => (
               <SurveyQuestion
                 question={question}
                 index={index}
                 total={total}
-                user={profile}
+                user={userProfile}
                 key={index}
               >
                 <SurveyVoteButtons

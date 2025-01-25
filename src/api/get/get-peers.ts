@@ -1,5 +1,6 @@
 import { supabase } from "@/supabase";
 export const PEERS_LIMIT = 2;
+
 export const getMyPeers = async (id: string) => {
   const { data } = await supabase
     .from("selected_peers")
@@ -19,11 +20,14 @@ export const getPeersToEvaluateWithPagination = async (
   id: string,
   page: number,
 ) => {
+  const from = page * PEERS_LIMIT;
+  const to = from + PEERS_LIMIT - 1;
   const { data } = await supabase
     .from("selected_peers")
     .select("*")
     .eq("peer_id", id)
-    .range(page * PEERS_LIMIT, page * PEERS_LIMIT + PEERS_LIMIT);
+    .range(from, to)
+    .order("id");
   return data;
 };
 export const getSelectedPeersStatus = async (

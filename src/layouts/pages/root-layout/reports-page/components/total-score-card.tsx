@@ -23,7 +23,7 @@ interface TotalScoreCardProps {
   answers: Answer[];
 }
 const TotalScoreCard: React.FC<TotalScoreCardProps> = ({ answers }) => {
-  const average = getAverageScore(answers) || 0;
+  const average = Math.round(getAverageScore(answers)) || 0;
   const remaining = 10 - average;
   const benchmark = 7;
   const percentage = Math.round(100 - (benchmark / average) * 100);

@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import ResultsByQuestionsCard from "./components/results-by-questions-card";
 import { Answer, Questions } from "@/types/types";
 import TotalScoreCard from "./components/total-score-card";
+import EmptyState from "./components/empty-state";
 
 const ReportsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -28,11 +29,18 @@ const ReportsPage: React.FC = () => {
           </p>
         )}
       </div>
-      <TotalScoreCard answers={answers as Answer[]} />
-      <ResultsByQuestionsCard
-        questions={questions as Questions[]}
-        answers={answers as Answer[]}
-      />
+
+      {answers?.length ? (
+        <>
+          <TotalScoreCard answers={answers as Answer[]} />
+          <ResultsByQuestionsCard
+            questions={questions as Questions[]}
+            answers={answers as Answer[]}
+          />
+        </>
+      ) : (
+        <EmptyState />
+      )}
     </div>
   );
 };

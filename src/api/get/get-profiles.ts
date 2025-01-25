@@ -29,10 +29,19 @@ export const getAvailablePeersProfiles = async (
   return data || [];
 };
 
-export const getAvailablePeersProfilesCount = async (id: string) => {
-  const { count } = await supabase
+export const getAvailablePeersProfilesCount = async (
+  id: string,
+  searchQuery: string,
+) => {
+  let request = supabase
     .from("profiles")
     .select("*", { count: "exact" })
     .neq("user_id", id);
+  if (searchQuery) {
+    request = request.or(
+      `display_name_en.ilike.%${searchQuery}%,display_name_ka.ilike.%${searchQuery}%`,
+    );
+  }
+  const { count } = await request;
   return count;
 };
