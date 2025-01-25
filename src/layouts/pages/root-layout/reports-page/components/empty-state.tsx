@@ -1,15 +1,8 @@
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { t } from "i18next";
 import { ChartPie, Info } from "lucide-react";
 
-
 const EmptyState: React.FC = () => {
-
   return (
     <Card className="flex-1 bg-gray-50 dark:bg-gray-800">
       <CardHeader>
@@ -28,7 +21,6 @@ const EmptyState: React.FC = () => {
           </p>
         </div>
       </CardContent>
-    
     </Card>
   );
 };
