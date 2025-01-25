@@ -8,6 +8,7 @@ import { supabase } from "./supabase";
 import useGetProfileWithId from "./hooks/use-get-profile-with-id";
 import { ThemeProvider } from "./components/theme-provider";
 import Loader from "./components/ui/loader";
+import useGetUserSession from "./hooks/use-get-user-session";
 
 function App() {
   const setUser = useSetAtom(UserAtom);
@@ -16,6 +17,14 @@ function App() {
 
   const [loading, setLoading] = useState(true);
 
+  const {data: session}=useGetUserSession();
+
+  useEffect(() => {
+    if (session) {
+      setUser(session);
+    }
+    setLoading(false);
+  }, [session, setUser])
   useEffect(() => {
     const {
       data: { subscription },
