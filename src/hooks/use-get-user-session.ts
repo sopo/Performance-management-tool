@@ -7,7 +7,7 @@ const useGetUserSession = () => {
     queryKey: [QUERY_KEYS.USER_SESSION],
     queryFn: async () => {
       return await getSession();
-    }
+    },
   });
 };
 export default useGetUserSession;

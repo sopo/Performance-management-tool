@@ -17,14 +17,14 @@ function App() {
 
   const [loading, setLoading] = useState(true);
 
-  const {data: session}=useGetUserSession();
+  const { data: session } = useGetUserSession();
 
   useEffect(() => {
     if (session) {
       setUser(session);
     }
     setLoading(false);
-  }, [session, setUser])
+  }, [session, setUser]);
   useEffect(() => {
     const {
       data: { subscription },
