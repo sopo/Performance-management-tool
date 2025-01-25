@@ -21,7 +21,7 @@ export const getPeersToEvaluateWithPagination = async (
   page: number,
 ) => {
   const from = page * PEERS_LIMIT;
-const to = from + PEERS_LIMIT - 1;
+  const to = from + PEERS_LIMIT - 1;
   const { data } = await supabase
     .from("selected_peers")
     .select("*")

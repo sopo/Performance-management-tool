@@ -32,7 +32,11 @@ const SurveyPage: React.FC = () => {
     onSuccess: () => {
       setSurveyCompleted(true);
       if (peerId) {
-        updateStatus({ userId: userId as string, peerId: peerId, isEvaluated: true });
+        updateStatus({
+          userId: userId as string,
+          peerId: peerId,
+          isEvaluated: true,
+        });
       }
     },
   });
