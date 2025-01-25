@@ -56,7 +56,10 @@ const ChooseEmployees: React.FC = () => {
   const { mutate, isSuccess } = usePostProfiles();
   const { lang } = useParams();
   const navigate = useNavigate();
-  const { data: count } = useGetAvailablePeersProfilesCount({ id: userId, searchQuery });
+  const { data: count } = useGetAvailablePeersProfilesCount({
+    id: userId,
+    searchQuery,
+  });
 
   useEffect(() => {
     if (data && chosenPeers) {

@@ -4,7 +4,7 @@ import { getAvailablePeersProfilesCount } from "@/api/get/get-profiles";
 
 const useGetAvailablePeersProfilesCount = ({
   id,
-  searchQuery
+  searchQuery,
 }: {
   id: string;
   searchQuery: string;
