@@ -23,7 +23,8 @@ export const getPeersToEvaluateWithPagination = async (
     .from("selected_peers")
     .select("*")
     .eq("peer_id", id)
-    .range(page * PEERS_LIMIT, page * PEERS_LIMIT + PEERS_LIMIT);
+    .range(page * PEERS_LIMIT, page * PEERS_LIMIT + PEERS_LIMIT) 
+    .order("id");
   return data;
 };
 export const getSelectedPeersStatus = async (
