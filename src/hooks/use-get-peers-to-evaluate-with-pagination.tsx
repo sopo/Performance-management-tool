@@ -3,7 +3,7 @@ import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { Peer } from "@/types/types";
 import { getPeersToEvaluateWithPagination } from "@/api/get/get-peers";
 
-const useGetPeersToEvaluate = <T = Peer[],>({
+const useGetPeersToEvaluate = <T = Peer[]>({
   id,
   page,
 }: {
