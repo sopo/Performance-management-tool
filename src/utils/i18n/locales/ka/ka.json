@@ -55,8 +55,8 @@
       "title": "კოლეგების შეფასება",
       "description": "",
       "filledState": {
-        "youHaveToEvaluate": "შესაფასებელი გყავს",
-        "peers": "კოლეგა",
+        "youHaveToEvaluate": "შემფასებლად აგირჩია",
+        "peers": "მა კოლეგამ",
         "evaluateUntilDeadline": "გთხოვთ შეფასოთ კოლეგები დედლაინამდე"
       },
       "emptyState": {
